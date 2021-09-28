@@ -14,7 +14,7 @@ public class MenuScreen extends MyScreen {
 
     @Override
     protected void afterAssetsLoaded() {
-        addStage(new MenuStage(game),0,false );
+        addStage(new MenuStage(game),0,true );
     }
 
     public MenuScreen(MyGame game) {
