@@ -1,11 +1,13 @@
-package csakennijottunk;
+package csakennijottunk.InGame;
 
 import hu.csanyzeg.master.MyBaseClasses.Assets.AssetList;
 import hu.csanyzeg.master.MyBaseClasses.Game.MyGame;
 import hu.csanyzeg.master.MyBaseClasses.Scene2D.MyScreen;
-import csakennijottunk.MenuStage;
 
-public class MenuScreen extends MyScreen {
+public class InGameScreen extends MyScreen {
+    public InGameScreen(MyGame game) {
+        super(game);
+    }
 
     @Override
     public AssetList getAssetList() {
@@ -14,10 +16,7 @@ public class MenuScreen extends MyScreen {
 
     @Override
     protected void afterAssetsLoaded() {
-        addStage(new MenuStage(game),0,true );
-    }
+        addStage(new InGameStage(game),0,true);
 
-    public MenuScreen(MyGame game) {
-        super(game);
     }
 }
