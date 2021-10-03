@@ -3,17 +3,24 @@ import com.badlogic.gdx.utils.viewport.ExtendViewport;
 
 import hu.csanyzeg.master.MyBaseClasses.Game.MyGame;
 import hu.csanyzeg.master.MyBaseClasses.Scene2D.MyStage;
+import hu.csanyzeg.master.MyBaseClasses.Scene2D.ResponseViewport;
 
 public class MenuStage extends MyStage {
     MenuActors e;
     MenuActors2 b;
+    BackGroundActor h;
     public MenuStage(MyGame game) {
-        super(new ExtendViewport(90,160), game);
+        super(new ResponseViewport(90), game);
+        setCameraResetToCenterOfScreen();
         addBackButtonScreenBackByStackPopListener();
         e = new MenuActors(game);
         addActor(e);
-        e.setSize(50,50);
+        e.setZIndex(1);
         b = new MenuActors2(game);
         addActor(b);
+        b.setZIndex(0);
+        h = new BackGroundActor(game);
+        addActor(h);
+        h.setZIndex(-10);
     }
 }

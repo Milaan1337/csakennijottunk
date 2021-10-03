@@ -11,6 +11,9 @@ public class MenuActors extends OneSpriteStaticActor {
     ClickListener c1;
     public MenuActors(MyGame game) {
         super(game, "badlogic.jpg");
+        this.setSize(24,12);
+        this.setPosition(-20,12);
+        this.setZIndex(2);
         this.addListener(c1 = new ClickListener(){
             @Override
             public void clicked(InputEvent event, float x, float y) {
@@ -25,8 +28,8 @@ class MenuActors2 extends OneSpriteStaticActor {
     ClickListener c2;
     public MenuActors2(MyGame game) {
         super(game, "badlogic.jpg");
-        this.setSize(50,50);
-        this.setPosition(100,100);
+        this.setSize(24,12);
+        this.setPosition(45 - 12,12);
         this.addListener(c2 = new ClickListener(){
             @Override
             public void clicked(InputEvent event, float x, float y) {
@@ -34,5 +37,14 @@ class MenuActors2 extends OneSpriteStaticActor {
                 game.setScreen(new InGameScreen(game));
             }
         });
+    }
+}
+
+class BackGroundActor extends OneSpriteStaticActor {
+    public BackGroundActor(MyGame game) {
+        super(game, "MenuBackground.png");
+        this.setSize(170,90);
+        this.setPosition(-45,0);
+        this.setZIndex(0);
     }
 }
