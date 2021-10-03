@@ -4,6 +4,7 @@ import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 
 import csakennijottunk.InGame.InGameScreen;
+import csakennijottunk.credit.CreditScreen;
 import hu.csanyzeg.master.MyBaseClasses.Game.MyGame;
 import hu.csanyzeg.master.MyBaseClasses.Scene2D.OneSpriteStaticActor;
 
@@ -46,5 +47,22 @@ class BackGroundActor extends OneSpriteStaticActor {
         this.setSize(170,90);
         this.setPosition(-45,0);
         this.setZIndex(0);
+    }
+}
+class Creditactor extends OneSpriteStaticActor {
+    ClickListener b2;
+    public Creditactor(MyGame game) {
+        super(game, "buttonblue.png");
+        this.setSize(24, 12);
+        this.setPosition(86, 12);
+        this.addListener(b2 = new ClickListener(){
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                super.clicked(event, x, y);
+                game.setScreen(new CreditScreen (game));
+            }
+        });
+
+
     }
 }

@@ -7,6 +7,7 @@ import hu.csanyzeg.master.MyBaseClasses.Scene2D.ResponseViewport;
 
 public class MenuStage extends MyStage {
     MenuActors e;
+    Creditactor k;
     MenuActors2 b;
     BackGroundActor h;
     public MenuStage(MyGame game) {
@@ -22,5 +23,8 @@ public class MenuStage extends MyStage {
         h = new BackGroundActor(game);
         addActor(h);
         h.setZIndex(-10);
+        k = new Creditactor(game);
+        addActor(k);
+        k.setZIndex(-5);
     }
 }
