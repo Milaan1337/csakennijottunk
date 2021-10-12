@@ -10,6 +10,8 @@ public class MenuStage extends MyStage {
     Creditactor k;
     MenuActors2 b;
     BackGroundActor h;
+    MusicActor m;
+    MusicActor2 n;
     public MenuStage(MyGame game) {
         super(new ResponseViewport(90), game);
         setCameraResetToCenterOfScreen();
@@ -26,5 +28,11 @@ public class MenuStage extends MyStage {
         k = new Creditactor(game);
         addActor(k);
         k.setZIndex(-5);
+        m = new MusicActor(game);
+        addActor(m);
+        m.setZIndex(-5);
+        n = new MusicActor2(game);
+        addActor(n);
+        n.setZIndex(-5);
     }
 }

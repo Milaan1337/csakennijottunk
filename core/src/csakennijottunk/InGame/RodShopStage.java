@@ -7,10 +7,19 @@ import hu.csanyzeg.master.MyBaseClasses.Scene2D.MyStage;
 import hu.csanyzeg.master.MyBaseClasses.Scene2D.ResponseViewport;
 
 public class RodShopStage extends MyStage {
+    DamilActor e;
+    CsaliActor c;
     public RodShopStage(MyGame game) {
         super(new ResponseViewport(90), game);
         addBackButtonScreenBackByStackPopListener();
         setCameraResetToCenterOfScreen();
+        c = new CsaliActor(game);
+        addActor(c);
+        c.setZIndex(-5);
+        e = new DamilActor(game);
+        addActor(e);
+        e.setZIndex(-5);
+
         boolean basicrod = false;
         boolean betterrod = false;
         boolean bestrod = false;

@@ -66,3 +66,36 @@ class Creditactor extends OneSpriteStaticActor {
 
     }
 }
+
+class MusicActor extends OneSpriteStaticActor {
+    ClickListener d2;
+
+    public MusicActor(MyGame game) {
+        super(game, "SoundON.png");
+        this.setSize(10, 10);
+        this.setPosition(115, 0);
+        this.addListener(d2 = new ClickListener() {
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                super.clicked(event, x, y);
+                game.setScreen(new CreditScreen(game));
+            }
+        });
+    }
+}
+class MusicActor2 extends OneSpriteStaticActor {
+    ClickListener d2;
+
+    public MusicActor2(MyGame game) {
+        super(game, "SoundOFF.png");
+        this.setSize(10, 10);
+        this.setPosition(115, 0);
+        this.addListener(d2 = new ClickListener() {
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                super.clicked(event, x, y);
+                game.setScreen(new CreditScreen(game));
+            }
+        });
+    }
+}
