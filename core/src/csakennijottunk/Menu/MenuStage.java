@@ -17,7 +17,7 @@ public class MenuStage extends MyStage {
     MusicActor2 m2;
     ClickListener d2;
     ClickListener d3;
-    boolean isPlaying = false;
+    static boolean isPlaying = true;
     Music music = game.getMyAssetManager().getMusic("music.wav");
     public MenuStage(MyGame game) {
         super(new ResponseViewport(90), game);
@@ -40,9 +40,9 @@ public class MenuStage extends MyStage {
         m.setZIndex(-5);
         m2 = new MusicActor2(game);
         m2.setZIndex(-5);
-        if (isPlaying == false) {
+        if (isPlaying == true) {
             music.play();
-            isPlaying = true;
+            //isPlaying = true;
         }
         m.addListener(d2 = new ClickListener(){
             @Override
