@@ -1,5 +1,6 @@
 package csakennijottunk.Menu;
 
+import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 
@@ -7,6 +8,7 @@ import csakennijottunk.InGame.InGameScreen;
 import csakennijottunk.credit.CreditScreen;
 import hu.csanyzeg.master.MyBaseClasses.Game.MyGame;
 import hu.csanyzeg.master.MyBaseClasses.Scene2D.OneSpriteStaticActor;
+
 
 public class MenuActors extends OneSpriteStaticActor {
     ClickListener c1;
@@ -64,5 +66,25 @@ class Creditactor extends OneSpriteStaticActor {
         });
 
 
+    }
+}
+
+class MusicActor extends OneSpriteStaticActor {
+    ClickListener d2;
+    boolean isMuted = false;
+    public MusicActor(MyGame game) {
+        super(game, "SoundON.png");
+        this.setSize(10, 10);
+        this.setPosition(115, 0);
+    }
+}
+
+class MusicActor2 extends OneSpriteStaticActor {
+    ClickListener d2;
+    boolean isMuted = false;
+    public MusicActor2(MyGame game) {
+        super(game, "SoundOFF.png");
+        this.setSize(10, 10);
+        this.setPosition(115, 0);
     }
 }

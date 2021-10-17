@@ -5,6 +5,7 @@ import com.badlogic.gdx.utils.viewport.Viewport;
 import java.awt.Label;
 
 import csakennijottunk.Menu.MenuActors;
+import csakennijottunk.Menu.MenuStage;
 import hu.csanyzeg.master.MyBaseClasses.Game.MyGame;
 import hu.csanyzeg.master.MyBaseClasses.Scene2D.MyStage;
 import hu.csanyzeg.master.MyBaseClasses.Scene2D.ResponseViewport;
@@ -14,6 +15,7 @@ public class InGameStage extends MyStage {
     InActors rodShop;
     Header header;
     Ls labelStyle;
+    MenuStage ms;
     public InGameStage(MyGame game) {
         super(new ResponseViewport(90), game);
         header = new Header(game);
@@ -26,6 +28,8 @@ public class InGameStage extends MyStage {
         moneyLabel.setZIndex(20);
         addBackButtonScreenBackByStackPopListener();
         setCameraResetToCenterOfScreen();
+        ms = new MenuStage(game);
+        System.out.println(ms.getState());
         boolean isRod = false;
         int rodType = 0;
         int money = 100;
@@ -36,8 +40,6 @@ public class InGameStage extends MyStage {
             rodShop = new InActors(game);
             addActor(rodShop);
         }
-
-
 
     }
 }
