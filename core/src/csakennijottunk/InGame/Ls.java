@@ -11,6 +11,6 @@ import hu.csanyzeg.master.MyBaseClasses.UI.MyLabel;
 
 public class Ls extends Label.LabelStyle {
     public Ls(MyGame game) {
-        super(game.getMyAssetManager().getFont("alegreyaregular.otf"), Color.WHITE);
+        super(game.getMyAssetManager().getFont("Highman.ttf"), Color.WHITE);
     }
 }

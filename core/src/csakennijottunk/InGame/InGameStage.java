@@ -21,9 +21,10 @@ public class InGameStage extends MyStage {
         header = new Header(game);
         addActor(header);
         labelStyle = new Ls(game);
-        MyLabel moneyLabel = new MyLabel(game,"Úgy tűnik még nincsen horgászbotod. Vegyél egyet!", labelStyle);
+        MyLabel moneyLabel = new MyLabel(game,"Ugy tunik meg nincsen horgaszbotod. Vegyel egyet!", labelStyle);
         addActor(moneyLabel);
-        moneyLabel.setFontScale((float) 0.2);
+        //moneyLabel.setFontScale((float) 0.1);
+        moneyLabel.setFontScale((float) 0.15, (float) 0.1);
         moneyLabel.setPosition(0,90-28);
         moneyLabel.setZIndex(20);
         addBackButtonScreenBackByStackPopListener();

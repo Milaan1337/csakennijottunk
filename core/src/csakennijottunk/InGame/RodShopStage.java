@@ -9,16 +9,26 @@ import hu.csanyzeg.master.MyBaseClasses.Scene2D.ResponseViewport;
 public class RodShopStage extends MyStage {
     DamilActor e;
     CsaliActor c;
+    Header header;
+    ShopBg shopBg;
     public RodShopStage(MyGame game) {
         super(new ResponseViewport(90), game);
         addBackButtonScreenBackByStackPopListener();
         setCameraResetToCenterOfScreen();
-        c = new CsaliActor(game);
-        addActor(c);
-        c.setZIndex(-5);
-        e = new DamilActor(game);
-        addActor(e);
-        e.setZIndex(-5);
+        //c = new CsaliActor(game);
+        //addActor(c);
+        //c.setZIndex(-5);
+        //e = new DamilActor(game);
+        //addActor(e);
+        //e.setZIndex(-5);
+
+        header = new Header(game);
+        addActor(header);
+        header.setZIndex(10);
+
+        shopBg = new ShopBg(game);
+        addActor(shopBg);
+        shopBg.setZIndex(0);
 
         boolean basicrod = false;
         boolean betterrod = false;
