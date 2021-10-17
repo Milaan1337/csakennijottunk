@@ -12,6 +12,8 @@ public class RodShopStage extends MyStage {
     Header header;
     ShopBg shopBg;
     RodLvl1 rodLvl1;
+    RodLvl2 rodLvl2;
+    RodLvl3 rodLvl3;
     public RodShopStage(MyGame game) {
         super(new ResponseViewport(90), game);
         addBackButtonScreenBackByStackPopListener();
@@ -34,8 +36,20 @@ public class RodShopStage extends MyStage {
         rodLvl1 = new RodLvl1(game);
         addActor(rodLvl1);
         rodLvl1.setZIndex(15);
-        rodLvl1.setPosition(15,40);
+        rodLvl1.setPosition(0,30);
         rodLvl1.setSize(40,20);
+
+        rodLvl2 = new RodLvl2(game);
+        addActor(rodLvl2);
+        rodLvl2.setZIndex(15);
+        rodLvl2.setPosition(50,30);
+        rodLvl2.setSize(40,20);
+
+        rodLvl3 = new RodLvl3(game);
+        addActor(rodLvl3);
+        rodLvl3.setZIndex(15);
+        rodLvl3.setPosition(0,5);
+        rodLvl3.setSize(40,20);
 
 
 
