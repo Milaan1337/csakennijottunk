@@ -11,7 +11,7 @@ import hu.csanyzeg.master.MyBaseClasses.UI.MyLabel;
 public class InActors extends OneSpriteStaticActor {
     ClickListener c1;
     public InActors(MyGame game) {
-        super(game, "badlogic.jpg");
+        super(game, "DefaultRodbg.png");
         this.setSize(20,10);
         this.setPosition(45 - 10, 50);
         this.addListener(c1 = new ClickListener(){
@@ -54,10 +54,36 @@ class CsaliActor extends OneSpriteStaticActor {
     }
 }
 
+class ShopBg extends OneSpriteStaticActor {
+    public ShopBg(MyGame game) {
+        super(game, "Shop.png");
+        int size = 90;
+        this.setSize(size,80);
+    }
+}
+
 class Header extends OneSpriteStaticActor {
     public Header(MyGame game) {
         super(game, "fejlec.png");
         this.setSize(90,10);
         this.setPosition(0,90 - 10);
+    }
+}
+
+class RodLvl1 extends OneSpriteStaticActor {
+    public RodLvl1(MyGame game) {
+        super(game, "DefaultRod.png");
+    }
+}
+
+class RodLvl2 extends OneSpriteStaticActor {
+    public RodLvl2(MyGame game) {
+        super(game, "Upgrade.png");
+    }
+}
+
+class RodLvl3 extends OneSpriteStaticActor {
+    public RodLvl3(MyGame game) {
+        super(game, "Upgrade2.png");
     }
 }

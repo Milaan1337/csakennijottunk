@@ -36,10 +36,15 @@ public class MenuStage extends MyStage {
         addActor(k);
         k.setZIndex(-5);
         m = new MusicActor(game);
-        addActor(m);
-        m.setZIndex(-5);
         m2 = new MusicActor2(game);
         m2.setZIndex(-5);
+        if (isPlaying == true) {
+            addActor(m);
+        }
+        else{
+            addActor(m2);
+        }
+        m.setZIndex(-5);
         if (isPlaying == true) {
             music.play();
             //isPlaying = true;
