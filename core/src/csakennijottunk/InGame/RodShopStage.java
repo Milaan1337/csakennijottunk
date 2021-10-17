@@ -11,6 +11,7 @@ public class RodShopStage extends MyStage {
     CsaliActor c;
     Header header;
     ShopBg shopBg;
+    RodLvl1 rodLvl1;
     public RodShopStage(MyGame game) {
         super(new ResponseViewport(90), game);
         addBackButtonScreenBackByStackPopListener();
@@ -29,6 +30,14 @@ public class RodShopStage extends MyStage {
         shopBg = new ShopBg(game);
         addActor(shopBg);
         shopBg.setZIndex(0);
+
+        rodLvl1 = new RodLvl1(game);
+        addActor(rodLvl1);
+        rodLvl1.setZIndex(15);
+        rodLvl1.setPosition(15,40);
+        rodLvl1.setSize(40,20);
+
+
 
         boolean basicrod = false;
         boolean betterrod = false;
