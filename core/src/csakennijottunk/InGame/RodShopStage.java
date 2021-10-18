@@ -31,12 +31,12 @@ public class RodShopStage extends MyStage {
         vasarlasLabel.setFontScale((float) 0.20);
         vasarlasLabel.setPosition(70, 20);
         vasarlasLabel.setZIndex(10);
+
         MyLabel vasarlasLabel2 = new MyLabel(game, "Vasarlas", labelStyle);
         addActor(vasarlasLabel2);
         vasarlasLabel2.setFontScale((float) 0.20);
         vasarlasLabel2.setPosition(70, -5);
         vasarlasLabel2.setZIndex(10);
-
         moneyLabel = new MoneyLabel(game, "0", labelStyle);
         addActor(moneyLabel);
         moneyLabel.setFontScale((float)0.40);

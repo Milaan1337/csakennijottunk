@@ -11,7 +11,7 @@ public class BasicVariables {
 
     static boolean isRod = false;
     static int rodType = 0;
-    static int money = 100;
+    static int money = 0;
     static int horog = 0;
     static int bait = 0;
     static int damil = 0;
@@ -27,5 +27,9 @@ public class BasicVariables {
 
     public int getMoney(){
         return money;
+    }
+
+    public int getDamil(){
+        return damil;
     }
 }
