@@ -16,7 +16,7 @@ public class RodShopStage extends MyStage {
     RodLvl2 rodLvl2;
     RodLvl3 rodLvl3;
     Ls labelStyle;
-    Ls labelStyle2;
+    MoneyLabel moneyLabel;
     public RodShopStage(MyGame game) {
         super(new ResponseViewport(90), game);
         addBackButtonScreenBackByStackPopListener();
@@ -27,12 +27,15 @@ public class RodShopStage extends MyStage {
         vasarlasLabel.setFontScale((float) 0.20);
         vasarlasLabel.setPosition(70, 20);
         vasarlasLabel.setZIndex(10);
-        labelStyle2 = new Ls(game);
         MyLabel vasarlasLabel2 = new MyLabel(game, "Vasarlas", labelStyle);
         addActor(vasarlasLabel2);
         vasarlasLabel2.setFontScale((float) 0.20);
         vasarlasLabel2.setPosition(70, -5);
         vasarlasLabel2.setZIndex(10);
+
+        moneyLabel = new MoneyLabel(game, "", labelStyle);
+        addActor(moneyLabel);
+        moneyLabel.setFontScale((float)0.40);
         //c = new CsaliActor(game);
         //addActor(c);
         //c.setZIndex(-5);
