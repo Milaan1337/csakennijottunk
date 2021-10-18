@@ -33,16 +33,11 @@ public class RodShopStage extends MyStage {
         addActor(shopBg);
         shopBg.setZIndex(0);
 
-        rodLvl1 = new RodLvl1(game);
-        addActor(rodLvl1);
-        rodLvl1.setZIndex(15);
-        rodLvl1.setPosition(0,30);
-        rodLvl1.setSize(40,20);
 
         rodLvl2 = new RodLvl2(game);
         addActor(rodLvl2);
         rodLvl2.setZIndex(15);
-        rodLvl2.setPosition(50,30);
+        rodLvl2.setPosition(0,30);
         rodLvl2.setSize(40,20);
 
         rodLvl3 = new RodLvl3(game);
@@ -53,7 +48,7 @@ public class RodShopStage extends MyStage {
 
 
 
-        boolean basicrod = false;
+        boolean basicrod = true;
         boolean betterrod = false;
         boolean bestrod = false;
 
