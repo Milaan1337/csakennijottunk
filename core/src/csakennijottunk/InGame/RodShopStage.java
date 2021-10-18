@@ -21,6 +21,8 @@ public class RodShopStage extends MyStage {
     DamilLabel damilLabel;
     MoneyLabel moneyLabel;
     MoneyActor moneyActor;
+    PlayLabel playLabel;
+    CreditLabel creditLabel;
     BasicVariables basicVariables;
     public RodShopStage(MyGame game) {
         super(new ResponseViewport(90), game);
@@ -62,6 +64,18 @@ public class RodShopStage extends MyStage {
         damilActor = new DamilActor(game);
         addActor(damilActor);
         damilActor.setZIndex(15);
+
+        playLabel = new PlayLabel(game, "0", labelStyle);
+        playLabel.setFontScale((float) 0.40);
+        addActor(playLabel);
+        playLabel.setZIndex(15);
+
+
+        creditLabel = new CreditLabel(game, "0", labelStyle);
+        creditLabel.setFontScale((float) 0.40);
+        addActor(creditLabel);
+        creditLabel.setZIndex(15);
+
         //c = new CsaliActor(game);
         //addActor(c);
         //c.setZIndex(-5);
