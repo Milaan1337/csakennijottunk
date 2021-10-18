@@ -56,7 +56,6 @@ class CsaliActor extends OneSpriteStaticActor {
             @Override
             public void clicked(InputEvent event,float x, float y) {
                 super.clicked(event, x, y);
-                game.setScreen(new MenuScreen(game));
             }
         });
     }
@@ -95,7 +94,6 @@ class MoneyLabel extends MyLabel {
         this.setZIndex(25);
     }
 }
-
 class RodLvl1 extends OneSpriteStaticActor {
     public RodLvl1(MyGame game) {
         super(game, "DefaultRod.png");
@@ -111,5 +109,12 @@ class RodLvl2 extends OneSpriteStaticActor {
 class RodLvl3 extends OneSpriteStaticActor {
     public RodLvl3(MyGame game) {
         super(game, "Upgrade2.png");
+    }
+}
+
+class IngameBackground extends OneSpriteStaticActor{
+    public IngameBackground(MyGame game) {
+        super(game, "IngameBackground.png");
+        this.setSize(90,90);
     }
 }
