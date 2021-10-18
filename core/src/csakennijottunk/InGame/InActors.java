@@ -41,7 +41,7 @@ class DamilActor extends OneSpriteStaticActor {
 class CsaliActor extends OneSpriteStaticActor {
     ClickListener d1;
     public CsaliActor(MyGame game){
-        super(game,"green.png");
+        super(game,"Bait.png");
         this.setSize(10,5);
         this.setPosition(60,40);
         this.addListener(d1 = new ClickListener(){

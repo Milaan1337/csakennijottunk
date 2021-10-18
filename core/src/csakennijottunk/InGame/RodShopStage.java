@@ -12,6 +12,7 @@ public class RodShopStage extends MyStage {
     CsaliActor c;
     Header header;
     ShopBg shopBg;
+    CsaliActor csaliActor;
     RodLvl1 rodLvl1;
     RodLvl2 rodLvl2;
     RodLvl3 rodLvl3;
@@ -43,21 +44,24 @@ public class RodShopStage extends MyStage {
         addActor(moneyActor);
         moneyActor.setZIndex(15);
         moneyLabel.setZIndex(15);
-        //c = new CsaliActor(game);
-        //addActor(c);
-        //c.setZIndex(-5);
+
+        csaliActor = new CsaliActor(game);
+        csaliActor.setSize(15, 15);
+        csaliActor.setPosition(75, 75);
+        csaliActor.setZIndex(15);
+        addActor(csaliActor);
+
         //e = new DamilActor(game);
         //addActor(e);
         //e.setZIndex(-5);
 
         header = new Header(game);
         addActor(header);
-        header.setZIndex(10);
+        header.setZIndex(0);
 
         shopBg = new ShopBg(game);
         addActor(shopBg);
         shopBg.setZIndex(0);
-
 
         rodLvl2 = new RodLvl2(game);
         addActor(rodLvl2);
