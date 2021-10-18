@@ -70,6 +70,19 @@ class Header extends OneSpriteStaticActor {
     }
 }
 
+class MoneyActor extends OneSpriteStaticActor {
+    public MoneyActor(MyGame game) {
+        super(game, "badlogic.jpg");
+    }
+}
+
+class MoneyLabel extends MyLabel {
+    public MoneyLabel(MyGame game, CharSequence text, LabelStyle style) {
+        super(game, text, style);
+        this.setPosition(45,80);
+    }
+}
+
 class RodLvl1 extends OneSpriteStaticActor {
     public RodLvl1(MyGame game) {
         super(game, "DefaultRod.png");
