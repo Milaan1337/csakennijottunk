@@ -13,6 +13,7 @@ public class RodShopStage extends MyStage {
     Header header;
     ShopBg shopBg;
     CsaliActor csaliActor;
+    CsaliLabel csaliLabel;
     RodLvl1 rodLvl1;
     RodLvl2 rodLvl2;
     RodLvl3 rodLvl3;
@@ -54,6 +55,11 @@ public class RodShopStage extends MyStage {
         csaliActor.setPosition(75, 75);
         csaliActor.setZIndex(15);
         addActor(csaliActor);
+
+        csaliLabel = new CsaliLabel(game, "0", labelStyle);
+        csaliLabel.setPosition(65, 80);
+        csaliLabel.setFontScale((float) 0.40);
+        addActor(csaliLabel);
 
 
         damilLabel = new DamilLabel(game, "0", labelStyle);

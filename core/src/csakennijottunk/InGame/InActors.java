@@ -77,6 +77,14 @@ class CsaliActor extends OneSpriteStaticActor {
     }
 }
 
+class CsaliLabel extends MyLabel {
+    public CsaliLabel(MyGame game, CharSequence text, LabelStyle style) {
+        super(game, text, style);
+        this.setSize(10, 10);
+
+    }
+}
+
 class ShopBg extends OneSpriteStaticActor {
     public ShopBg(MyGame game) {
         super(game, "Shop.png");
