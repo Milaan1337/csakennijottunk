@@ -23,12 +23,20 @@ public class InActors extends OneSpriteStaticActor {
         });
     }
 }
+class DamilLabel extends MyLabel{
+    public DamilLabel(MyGame game, CharSequence text, LabelStyle style) {
+        super(game, text, style);
+        this.setFontScale((float) 0.40);
+        this.setPosition(43,65);
+
+    }
+}
 class DamilActor extends OneSpriteStaticActor {
     ClickListener b1;
     public DamilActor(MyGame game) {
-        super(game, "green.png");
-        this.setSize(10,5);
-        this.setPosition(40, 40);
+        super(game, "Damil.png");
+        this.setSize(20,10);
+        this.setPosition(25, 80);
         this.addListener(b1 = new ClickListener(){
             @Override
             public void clicked(InputEvent event, float x, float y) {
