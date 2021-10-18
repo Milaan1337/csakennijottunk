@@ -17,6 +17,8 @@ public class RodShopStage extends MyStage {
     RodLvl2 rodLvl2;
     RodLvl3 rodLvl3;
     Ls labelStyle;
+    DamilActor damilActor;
+    DamilLabel damilLabel;
     MoneyLabel moneyLabel;
     MoneyActor moneyActor;
     BasicVariables basicVariables;
@@ -51,6 +53,18 @@ public class RodShopStage extends MyStage {
         csaliActor.setZIndex(15);
         addActor(csaliActor);
 
+
+        damilLabel = new DamilLabel(game, "0", labelStyle);
+        damilLabel.setFontScale((float) 0.40);
+        addActor(damilLabel);
+        damilLabel.setZIndex(15);
+
+        damilActor = new DamilActor(game);
+        addActor(damilActor);
+        damilActor.setZIndex(15);
+        //c = new CsaliActor(game);
+        //addActor(c);
+        //c.setZIndex(-5);
         //e = new DamilActor(game);
         //addActor(e);
         //e.setZIndex(-5);
