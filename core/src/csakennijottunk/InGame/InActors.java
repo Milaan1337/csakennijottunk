@@ -79,7 +79,9 @@ class MoneyActor extends OneSpriteStaticActor {
 class MoneyLabel extends MyLabel {
     public MoneyLabel(MyGame game, CharSequence text, LabelStyle style) {
         super(game, text, style);
-        this.setPosition(45,80);
+        this.setPosition(0, 80);
+        this.setSize(10,10);
+        this.setZIndex(25);
     }
 }
 

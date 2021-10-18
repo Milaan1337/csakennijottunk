@@ -35,7 +35,7 @@ public class RodShopStage extends MyStage {
 
         moneyLabel = new MoneyLabel(game, "", labelStyle);
         addActor(moneyLabel);
-        moneyLabel.setFontScale((float)0.40);
+        moneyLabel.setZIndex(15);
         //c = new CsaliActor(game);
         //addActor(c);
         //c.setZIndex(-5);
