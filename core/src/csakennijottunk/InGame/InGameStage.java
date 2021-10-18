@@ -16,10 +16,12 @@ public class InGameStage extends MyStage {
     Header header;
     Ls labelStyle;
     MenuStage ms;
+    BasicVariables basicVariables;
     public InGameStage(MyGame game) {
         super(new ResponseViewport(90), game);
         header = new Header(game);
         addActor(header);
+
         labelStyle = new Ls(game);
         MyLabel moneyLabel = new MyLabel(game,"Ugy tunik meg nincsen horgaszbotod. Vegyel egyet!", labelStyle);
         addActor(moneyLabel);
@@ -27,16 +29,11 @@ public class InGameStage extends MyStage {
         moneyLabel.setFontScale((float) 0.15, (float) 0.1);
         moneyLabel.setPosition(0,90-28);
         moneyLabel.setZIndex(20);
+
         addBackButtonScreenBackByStackPopListener();
         setCameraResetToCenterOfScreen();
-        ms = new MenuStage(game);
-        System.out.println(ms.getState());
-        boolean isRod = false;
-        int rodType = 0;
-        int money = 100;
-        int horog = 0;
-        int bait = 0;
-        int damil = 0;
+        basicVariables = new BasicVariables();
+        boolean isRod = basicVariables.vanBot();
         if (isRod == false) {
             rodShop = new InActors(game);
             addActor(rodShop);

@@ -72,14 +72,17 @@ class Header extends OneSpriteStaticActor {
 
 class MoneyActor extends OneSpriteStaticActor {
     public MoneyActor(MyGame game) {
-        super(game, "badlogic.jpg");
+        super(game, "coin.png");
+        this.setSize(10,10);
+        this.setPosition(0,80);
+        this.setZIndex(15);
     }
 }
 
 class MoneyLabel extends MyLabel {
     public MoneyLabel(MyGame game, CharSequence text, LabelStyle style) {
         super(game, text, style);
-        this.setPosition(0, 80);
+        this.setPosition(15, 80);
         this.setSize(10,10);
         this.setZIndex(25);
     }

@@ -17,6 +17,8 @@ public class RodShopStage extends MyStage {
     RodLvl3 rodLvl3;
     Ls labelStyle;
     MoneyLabel moneyLabel;
+    MoneyActor moneyActor;
+    BasicVariables basicVariables;
     public RodShopStage(MyGame game) {
         super(new ResponseViewport(90), game);
         addBackButtonScreenBackByStackPopListener();
@@ -33,8 +35,13 @@ public class RodShopStage extends MyStage {
         vasarlasLabel2.setPosition(70, -5);
         vasarlasLabel2.setZIndex(10);
 
-        moneyLabel = new MoneyLabel(game, "", labelStyle);
+        moneyLabel = new MoneyLabel(game, "0", labelStyle);
         addActor(moneyLabel);
+        moneyLabel.setFontScale((float)0.40);
+
+        moneyActor = new MoneyActor(game);
+        addActor(moneyActor);
+        moneyActor.setZIndex(15);
         moneyLabel.setZIndex(15);
         //c = new CsaliActor(game);
         //addActor(c);
@@ -64,19 +71,9 @@ public class RodShopStage extends MyStage {
         rodLvl3.setPosition(0,5);
         rodLvl3.setSize(40,20);
 
-
-
-        boolean basicrod = true;
-        boolean betterrod = false;
-        boolean bestrod = false;
-
-        int basicrodPrice = 50;
-        int betterrodPrice = 100;
-        int bestrodPrice = 200;
-
-        int basicrodLength = 3;
-        int betterrodLength = 4;
-        int bestrodLength = 5;
+        basicVariables = new BasicVariables();
+        int money = basicVariables.getMoney();
+        moneyLabel.setText(money);
 
 
     }
