@@ -35,4 +35,29 @@ public class BasicVariables {
     public int getCsali(){
         return bait;
     }
+
+    public boolean getRodLvl2(){
+        return betterrod;
+    }
+
+    public boolean getRodLvl3(){
+        return bestrod;
+    }
+
+    public void setRod(int lvl){
+        rodType = lvl;
+    }
+
+    public void buyRodLvl2(){
+        betterrod = true;
+    }
+
+    public void buyRodLvl3(){
+        bestrod = true;
+    }
+
+    public void setMoney(int coin){
+        money = coin;
+    }
+
 }

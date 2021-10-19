@@ -1,5 +1,7 @@
 package csakennijottunk.InGame;
 
+import com.badlogic.gdx.scenes.scene2d.InputEvent;
+import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
 import hu.csanyzeg.master.MyBaseClasses.Game.MyGame;
@@ -25,6 +27,8 @@ public class RodShopStage extends MyStage {
     PlayLabel playLabel;
     CreditLabel creditLabel;
     BasicVariables basicVariables;
+    ClickListener clickListener;
+    ClickListener c2;
     public RodShopStage(MyGame game) {
         super(new ResponseViewport(90), game);
         addBackButtonScreenBackByStackPopListener();
@@ -34,17 +38,53 @@ public class RodShopStage extends MyStage {
         int damil = basicVariables.getDamil();
         int csali = basicVariables.getCsali();
         labelStyle = new Ls(game);
-        MyLabel vasarlasLabel = new MyLabel(game, "Vasarlas", labelStyle);
-        addActor(vasarlasLabel);
-        vasarlasLabel.setFontScale((float) 0.20);
-        vasarlasLabel.setPosition(70, 20);
-        vasarlasLabel.setZIndex(10);
 
+        MyLabel vasarlasLabel = new MyLabel(game, "Vasarlas", labelStyle);
+        if (basicVariables.getRodLvl2() == false) {
+            addActor(vasarlasLabel);
+            vasarlasLabel.setFontScale((float) 0.20);
+            vasarlasLabel.setPosition(70, 20);
+            vasarlasLabel.setZIndex(10);
+            vasarlasLabel.addListener(clickListener = new ClickListener() {
+                @Override
+                public void clicked(InputEvent event, float x, float y) {
+                    super.clicked(event, x, y);
+                    if (money >= 10) {
+                        basicVariables.buyRodLvl2();
+                        basicVariables.setRod(2);
+                        System.out.println(basicVariables.getRodLvl2());
+                        vasarlasLabel.remove();
+                        basicVariables.setMoney(money - 5);
+                        updateMoneyLabel();
+                    }
+                }
+            });
+        }
+        else{
+            //ide kéne egy label amin az van,hogy ez már neked megvan
+            System.out.println("megvanmar");
+        }
         MyLabel vasarlasLabel2 = new MyLabel(game, "Vasarlas", labelStyle);
-        addActor(vasarlasLabel2);
-        vasarlasLabel2.setFontScale((float) 0.20);
-        vasarlasLabel2.setPosition(70, -5);
-        vasarlasLabel2.setZIndex(10);
+        if (basicVariables.getRodLvl3() == false) {
+            addActor(vasarlasLabel2);
+            vasarlasLabel2.addListener(c2 = new ClickListener() {
+                @Override
+                public void clicked(InputEvent event, float x, float y) {
+                    super.clicked(event, x, y);
+                    basicVariables.buyRodLvl3();
+                    basicVariables.setRod(3);
+                    vasarlasLabel2.remove();
+                    updateMoneyLabel();
+                }
+            });
+            vasarlasLabel2.setFontScale((float) 0.20);
+            vasarlasLabel2.setPosition(70, -5);
+            vasarlasLabel2.setZIndex(10);
+        }
+        else{
+            //ide kéne egy label amin az van,hogy ez már neked megvan
+            System.out.println("test");
+        }
         moneyLabel = new MoneyLabel(game, "", labelStyle);
         addActor(moneyLabel);
         moneyLabel.setFontScale((float)0.40);
@@ -116,6 +156,17 @@ public class RodShopStage extends MyStage {
         rodLvl3.setPosition(0,5);
         rodLvl3.setSize(40,20);
 
+    }
 
+    public void updateMoneyLabel(){
+        moneyLabel.setText(basicVariables.getMoney());
+    }
+
+    public void updateBaitLabel() {
+        csaliLabel.setText(basicVariables.getCsali());
+    }
+
+    public void updateDamilLabel(){
+        damilLabel.setText(basicVariables.getDamil());
     }
 }
