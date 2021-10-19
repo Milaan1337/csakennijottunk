@@ -1,13 +1,16 @@
 package csakennijottunk.Menu;
 
 import com.badlogic.gdx.audio.Music;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
+import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 
 import csakennijottunk.InGame.InGameScreen;
 import csakennijottunk.credit.CreditScreen;
 import hu.csanyzeg.master.MyBaseClasses.Game.MyGame;
 import hu.csanyzeg.master.MyBaseClasses.Scene2D.OneSpriteStaticActor;
+import hu.csanyzeg.master.MyBaseClasses.UI.MyLabel;
 
 
 public class MenuActors extends OneSpriteStaticActor {
@@ -24,6 +27,30 @@ public class MenuActors extends OneSpriteStaticActor {
                 game.setScreenBackByStackPop();
             }
         });
+    }
+}
+
+class CreditLabel2 extends MyLabel {
+    public CreditLabel2(MyGame game, CharSequence text, LabelStyle style) {
+        super(game, text, style);
+        this.setFontScale((float) 0.40);
+        this.setPosition(43,65);
+
+    }
+}
+
+class PlayLabel2 extends MyLabel{
+    public PlayLabel2(MyGame game, CharSequence text, LabelStyle style) {
+        super(game, text, style);
+        this.setFontScale((float) 0.40);
+        this.setPosition(43,65);
+
+    }
+}
+
+class Ls2 extends Label.LabelStyle {
+    public Ls2(MyGame game) {
+        super(game.getMyAssetManager().getFont("Highman.ttf"), Color.WHITE);
     }
 }
 

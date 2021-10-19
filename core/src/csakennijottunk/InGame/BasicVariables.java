@@ -10,9 +10,8 @@ public class BasicVariables {
     static int bestrodLength = 5;
 
     static boolean isRod = false;
-    static int rodType = 0;
+    static int rodType = 1;
     static int money = 10;
-    static int horog = 0;
     static int bait = 5;
     static int damil = 5;
 

@@ -17,12 +17,20 @@ public class MenuStage extends MyStage {
     MusicActor2 m2;
     ClickListener d2;
     ClickListener d3;
+    Ls2 ls2;
+    PlayLabel2 playLabel2;
+    CreditLabel2 creditLabel2;
     static boolean isPlaying = true;
     Music music = game.getMyAssetManager().getMusic("music.wav");
     public MenuStage(MyGame game) {
         super(new ResponseViewport(90), game);
         setCameraResetToCenterOfScreen();
         addBackButtonScreenBackByStackPopListener();
+        ls2 = new Ls2(game);
+        playLabel2 = new PlayLabel2(game,"asdasdasd",ls2);
+        addActor(playLabel2);
+        creditLabel2 = new CreditLabel2(game,"adasda",ls2);
+        addActor(creditLabel2);
         e = new MenuActors(game);
         addActor(e);
         e.setZIndex(1);
