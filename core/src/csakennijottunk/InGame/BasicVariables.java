@@ -11,10 +11,10 @@ public class BasicVariables {
 
     static boolean isRod = false;
     static int rodType = 0;
-    static int money = 0;
+    static int money = 10;
     static int horog = 0;
-    static int bait = 0;
-    static int damil = 0;
+    static int bait = 5;
+    static int damil = 5;
 
 
     static int basicrodPrice = 50;
@@ -31,5 +31,9 @@ public class BasicVariables {
 
     public int getDamil(){
         return damil;
+    }
+
+    public int getCsali(){
+        return bait;
     }
 }

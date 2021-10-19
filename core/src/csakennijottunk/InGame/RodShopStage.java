@@ -29,6 +29,10 @@ public class RodShopStage extends MyStage {
         super(new ResponseViewport(90), game);
         addBackButtonScreenBackByStackPopListener();
         setCameraResetToCenterOfScreen();
+        basicVariables = new BasicVariables();
+        int money = basicVariables.getMoney();
+        int damil = basicVariables.getDamil();
+        int csali = basicVariables.getCsali();
         labelStyle = new Ls(game);
         MyLabel vasarlasLabel = new MyLabel(game, "Vasarlas", labelStyle);
         addActor(vasarlasLabel);
@@ -41,9 +45,10 @@ public class RodShopStage extends MyStage {
         vasarlasLabel2.setFontScale((float) 0.20);
         vasarlasLabel2.setPosition(70, -5);
         vasarlasLabel2.setZIndex(10);
-        moneyLabel = new MoneyLabel(game, "0", labelStyle);
+        moneyLabel = new MoneyLabel(game, "", labelStyle);
         addActor(moneyLabel);
         moneyLabel.setFontScale((float)0.40);
+        moneyLabel.setText(money);
 
         moneyActor = new MoneyActor(game);
         addActor(moneyActor);
@@ -56,31 +61,33 @@ public class RodShopStage extends MyStage {
         csaliActor.setZIndex(15);
         addActor(csaliActor);
 
-        csaliLabel = new CsaliLabel(game, "0", labelStyle);
+        csaliLabel = new CsaliLabel(game, "", labelStyle);
         csaliLabel.setPosition(65, 80);
         csaliLabel.setFontScale((float) 0.40);
         addActor(csaliLabel);
+        csaliLabel.setText(csali);
 
 
-        damilLabel = new DamilLabel(game, "0", labelStyle);
+        damilLabel = new DamilLabel(game, "", labelStyle);
         damilLabel.setFontScale((float) 0.40);
         addActor(damilLabel);
         damilLabel.setZIndex(15);
+        damilLabel.setText(damil);
 
         damilActor = new DamilActor(game);
         addActor(damilActor);
         damilActor.setZIndex(15);
 
-        playLabel = new PlayLabel(game, "0", labelStyle);
-        playLabel.setFontScale((float) 0.40);
-        addActor(playLabel);
-        playLabel.setZIndex(15);
+        //playLabel = new PlayLabel(game, "0", labelStyle);
+        //playLabel.setFontScale((float) 0.40);
+        //addActor(playLabel);
+        //playLabel.setZIndex(15);
 
 
-        creditLabel = new CreditLabel(game, "0", labelStyle);
-        creditLabel.setFontScale((float) 0.40);
-        addActor(creditLabel);
-        creditLabel.setZIndex(15);
+        //creditLabel = new CreditLabel(game, "0", labelStyle);
+        //creditLabel.setFontScale((float) 0.40);
+        //addActor(creditLabel);
+        //creditLabel.setZIndex(15);
 
         //c = new CsaliActor(game);
         //addActor(c);
@@ -108,10 +115,6 @@ public class RodShopStage extends MyStage {
         rodLvl3.setZIndex(15);
         rodLvl3.setPosition(0,5);
         rodLvl3.setSize(40,20);
-
-        basicVariables = new BasicVariables();
-        int money = basicVariables.getMoney();
-        moneyLabel.setText(money);
 
 
     }
