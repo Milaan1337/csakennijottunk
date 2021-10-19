@@ -24,8 +24,6 @@ public class RodShopStage extends MyStage {
     DamilLabel damilLabel;
     MoneyLabel moneyLabel;
     MoneyActor moneyActor;
-    PlayLabel playLabel;
-    CreditLabel creditLabel;
     BasicVariables basicVariables;
     ClickListener clickListener;
     ClickListener c2;
@@ -97,7 +95,7 @@ public class RodShopStage extends MyStage {
 
         csaliActor = new CsaliActor(game);
         csaliActor.setSize(15, 15);
-        csaliActor.setPosition(75, 75);
+        csaliActor.setPosition(50, 75);
         csaliActor.setZIndex(15);
         addActor(csaliActor);
 
@@ -110,6 +108,7 @@ public class RodShopStage extends MyStage {
 
         damilLabel = new DamilLabel(game, "", labelStyle);
         damilLabel.setFontScale((float) 0.40);
+        damilLabel.setPosition(0,0);
         addActor(damilLabel);
         damilLabel.setZIndex(15);
         damilLabel.setText(damil);

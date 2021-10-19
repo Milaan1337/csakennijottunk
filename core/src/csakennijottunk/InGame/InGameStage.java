@@ -3,8 +3,6 @@ package csakennijottunk.InGame;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
 import java.awt.Label;
-
-import csakennijottunk.Menu.MenuActors;
 import csakennijottunk.Menu.MenuStage;
 import hu.csanyzeg.master.MyBaseClasses.Game.MyGame;
 import hu.csanyzeg.master.MyBaseClasses.Scene2D.MyStage;
@@ -28,6 +26,7 @@ public class InGameStage extends MyStage {
         //moneyLabel.setFontScale((float) 0.1);
         moneyLabel.setFontScale((float) 0.15, (float) 0.1);
         moneyLabel.setPosition(0,90-28);
+        moneyLabel.setHeight(10);
         moneyLabel.setZIndex(20);
 
         addBackButtonScreenBackByStackPopListener();
