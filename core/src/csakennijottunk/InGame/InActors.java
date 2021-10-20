@@ -143,3 +143,20 @@ class IngameBackground extends OneSpriteStaticActor{
         this.setSize(90,90);
     }
 }
+
+class PlayLabel1 extends MyLabel {
+    ClickListener b1;
+    public PlayLabel1(MyGame game, CharSequence text, LabelStyle style) {
+        super(game, text, style);
+        this.setFontScale((float) 0.40);
+        this.setPosition(30,10);
+        this.addListener(b1 = new ClickListener() {
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                super.clicked(event, x, y);
+                game.setScreen(new InGamePlayScreen(game));
+            }
+        });
+
+    }
+}
