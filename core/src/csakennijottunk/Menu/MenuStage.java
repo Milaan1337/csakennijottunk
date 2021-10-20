@@ -27,13 +27,13 @@ public class MenuStage extends MyStage {
         ls2 = new Ls2(game);
         playLabel2 = new PlayLabel(game,"Play",ls2);
         addActor(playLabel2);
-        playLabel2.setPosition(35,0);
+        playLabel2.setPosition(35,10);
         creditLabel2 = new CreditLabel(game,"Credit",ls2);
         addActor(creditLabel2);
-        creditLabel2.setPosition(90, 0);
+        creditLabel2.setPosition(90, 10);
         exitLabel = new ExitLabel(game,"Exit",ls2);
         addActor(exitLabel);
-        exitLabel.setPosition(-20, 0);
+        exitLabel.setPosition(-20, 10);
         h = new BackGroundActor(game);
         addActor(h);
         h.setZIndex(-10);

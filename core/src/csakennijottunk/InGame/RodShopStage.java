@@ -37,7 +37,7 @@ public class RodShopStage extends MyStage {
         int csali = basicVariables.getCsali();
         labelStyle = new Ls(game);
 
-        MyLabel vasarlasLabel = new MyLabel(game, "Vasarlas", labelStyle);
+        MyLabel vasarlasLabel = new MyLabel(game, "Buy", labelStyle);
         if (basicVariables.getRodLvl2() == false) {
             addActor(vasarlasLabel);
             vasarlasLabel.setFontScale((float) 0.20);
@@ -62,17 +62,22 @@ public class RodShopStage extends MyStage {
             //ide kéne egy label amin az van,hogy ez már neked megvan
             System.out.println("megvanmar");
         }
-        MyLabel vasarlasLabel2 = new MyLabel(game, "Vasarlas", labelStyle);
+        MyLabel vasarlasLabel2 = new MyLabel(game, "Buy", labelStyle);
         if (basicVariables.getRodLvl3() == false) {
             addActor(vasarlasLabel2);
             vasarlasLabel2.addListener(c2 = new ClickListener() {
                 @Override
                 public void clicked(InputEvent event, float x, float y) {
                     super.clicked(event, x, y);
-                    basicVariables.buyRodLvl3();
-                    basicVariables.setRod(3);
-                    vasarlasLabel2.remove();
                     updateMoneyLabel();
+                    if (money >= 10) {
+                        basicVariables.buyRodLvl3();
+                        basicVariables.setRod(3);
+                        System.out.println(basicVariables.getRodLvl3());
+                        vasarlasLabel2.remove();
+                        basicVariables.setMoney(money - 10);
+                        updateMoneyLabel();
+                    }
                 }
             });
             vasarlasLabel2.setFontScale((float) 0.20);
