@@ -26,12 +26,15 @@ public class MenuStage extends MyStage {
         addBackButtonScreenBackByStackPopListener();
         ls2 = new Ls2(game);
         playLabel2 = new PlayLabel(game,"Play",ls2);
+        playLabel2.setPositionMiddle();
         addActor(playLabel2);
         playLabel2.setPosition(35,10);
         creditLabel2 = new CreditLabel(game,"Credit",ls2);
+        creditLabel2.setPositionMiddle();
         addActor(creditLabel2);
         creditLabel2.setPosition(90, 10);
         exitLabel = new ExitLabel(game,"Exit",ls2);
+        exitLabel.setPositionMiddle();
         addActor(exitLabel);
         exitLabel.setPosition(-20, 10);
         h = new BackGroundActor(game);

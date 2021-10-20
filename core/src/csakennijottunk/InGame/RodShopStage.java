@@ -111,9 +111,9 @@ public class RodShopStage extends MyStage {
         csaliLabel.setText(csali);
 
 
-        damilLabel = new DamilLabel(game, "", labelStyle);
+        damilLabel = new DamilLabel(game, "0", labelStyle);
         damilLabel.setFontScale((float) 0.40);
-        damilLabel.setPosition(0,0);
+        damilLabel.setPosition(45,80);
         addActor(damilLabel);
         damilLabel.setZIndex(15);
         damilLabel.setText(damil);

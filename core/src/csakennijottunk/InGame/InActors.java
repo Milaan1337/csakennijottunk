@@ -27,7 +27,7 @@ class DamilLabel extends MyLabel{
     public DamilLabel(MyGame game, CharSequence text, LabelStyle style) {
         super(game, text, style);
         this.setFontScale((float) 0.40);
-        this.setPosition(43,65);
+        this.setSize(10,10);
 
     }
 }
