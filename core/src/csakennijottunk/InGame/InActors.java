@@ -23,12 +23,36 @@ public class InActors extends OneSpriteStaticActor {
         });
     }
 }
+class DamilLabel extends MyLabel{
+    public DamilLabel(MyGame game, CharSequence text, LabelStyle style) {
+        super(game, text, style);
+        this.setFontScale((float) 0.40);
+        this.setSize(10,10);
+
+    }
+}
+class PlayLabel extends MyLabel{
+    public PlayLabel(MyGame game, CharSequence text, LabelStyle style) {
+        super(game, text, style);
+        this.setFontScale((float) 0.40);
+        this.setPosition(43,65);
+
+    }
+}
+class CreditLabel extends MyLabel{
+    public CreditLabel(MyGame game, CharSequence text, LabelStyle style) {
+        super(game, text, style);
+        this.setFontScale((float) 0.40);
+        this.setPosition(43,65);
+
+    }
+}
 class DamilActor extends OneSpriteStaticActor {
     ClickListener b1;
     public DamilActor(MyGame game) {
-        super(game, "green.png");
-        this.setSize(10,5);
-        this.setPosition(40, 40);
+        super(game, "Damil.png");
+        this.setSize(20,10);
+        this.setPosition(25, 80);
         this.addListener(b1 = new ClickListener(){
             @Override
             public void clicked(InputEvent event, float x, float y) {
@@ -41,16 +65,24 @@ class DamilActor extends OneSpriteStaticActor {
 class CsaliActor extends OneSpriteStaticActor {
     ClickListener d1;
     public CsaliActor(MyGame game){
-        super(game,"green.png");
+        super(game,"Bait.png");
         this.setSize(10,5);
         this.setPosition(60,40);
         this.addListener(d1 = new ClickListener(){
             @Override
             public void clicked(InputEvent event,float x, float y) {
                 super.clicked(event, x, y);
-                game.setScreen(new MenuScreen(game));
             }
         });
+    }
+}
+
+class CsaliLabel extends MyLabel {
+    public CsaliLabel(MyGame game, CharSequence text, LabelStyle style) {
+        super(game, text, style);
+        this.setSize(10, 10);
+        this.setZIndex(25);
+
     }
 }
 
@@ -72,19 +104,21 @@ class Header extends OneSpriteStaticActor {
 
 class MoneyActor extends OneSpriteStaticActor {
     public MoneyActor(MyGame game) {
-        super(game, "badlogic.jpg");
+        super(game, "coin.png");
+        this.setSize(10,10);
+        this.setPosition(0,80);
+        this.setZIndex(15);
     }
 }
 
 class MoneyLabel extends MyLabel {
     public MoneyLabel(MyGame game, CharSequence text, LabelStyle style) {
         super(game, text, style);
-        this.setPosition(0, 80);
+        this.setPosition(15, 80);
         this.setSize(10,10);
         this.setZIndex(25);
     }
 }
-
 class RodLvl1 extends OneSpriteStaticActor {
     public RodLvl1(MyGame game) {
         super(game, "DefaultRod.png");
@@ -100,5 +134,29 @@ class RodLvl2 extends OneSpriteStaticActor {
 class RodLvl3 extends OneSpriteStaticActor {
     public RodLvl3(MyGame game) {
         super(game, "Upgrade2.png");
+    }
+}
+
+class IngameBackground extends OneSpriteStaticActor{
+    public IngameBackground(MyGame game) {
+        super(game, "IngameBackground.png");
+        this.setSize(1040,520);
+    }
+}
+
+class PlayLabel1 extends MyLabel {
+    ClickListener b1;
+    public PlayLabel1(MyGame game, CharSequence text, LabelStyle style) {
+        super(game, text, style);
+        this.setFontScale((float) 0.40);
+        this.setPosition(30,10);
+        this.addListener(b1 = new ClickListener() {
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                super.clicked(event, x, y);
+                game.setScreen(new InGamePlayScreen(game));
+            }
+        });
+
     }
 }

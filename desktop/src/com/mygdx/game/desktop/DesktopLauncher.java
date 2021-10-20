@@ -3,6 +3,7 @@ package com.mygdx.game.desktop;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
 
+import csakennijottunk.InGame.InGamePlayGame;
 import csakennijottunk.Menu.MainGame;
 
 public class DesktopLauncher {
