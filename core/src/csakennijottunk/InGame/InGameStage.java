@@ -22,13 +22,13 @@ public class InGameStage extends MyStage {
         labelStyle = new Ls(game);
         playLabel1 = new PlayLabel1(game, "Start",labelStyle);
         addActor(playLabel1);
-        MyLabel moneyLabel = new MyLabel(game,"Ugy tunik meg nincsen horgaszbotod. Vegyel egyet!", labelStyle);
-        addActor(moneyLabel);
+        //MyLabel moneyLabel = new MyLabel(game,"Ugy tunik meg nincsen horgaszbotod. Vegyel egyet!", labelStyle);
+        //addActor(moneyLabel);
         //moneyLabel.setFontScale((float) 0.1);
-        moneyLabel.setFontScale((float) 0.15, (float) 0.1);
-        moneyLabel.setPosition(0,90-28);
-        moneyLabel.setHeight(10);
-        moneyLabel.setZIndex(20);
+        //moneyLabel.setFontScale((float) 0.15, (float) 0.1);
+        //moneyLabel.setPosition(0,90-28);
+        //moneyLabel.setHeight(10);
+        //moneyLabel.setZIndex(20);
 
         addBackButtonScreenBackByStackPopListener();
         setCameraResetToCenterOfScreen();

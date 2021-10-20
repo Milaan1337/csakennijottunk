@@ -18,6 +18,7 @@ public class InGamePlayStage extends MyStage {
      ClickListener c1;
      Ballistics1 ballistics1;
      Ballistics2 ballistics2;
+     IngameBackground ingameBackground2;
     public InGamePlayStage(MyGame game) {
         super(new ResponseViewport(90), game);
         setCameraResetToCenterOfScreen();

@@ -140,7 +140,7 @@ class RodLvl3 extends OneSpriteStaticActor {
 class IngameBackground extends OneSpriteStaticActor{
     public IngameBackground(MyGame game) {
         super(game, "IngameBackground.png");
-        this.setSize(90,90);
+        this.setSize(1040,520);
     }
 }
 

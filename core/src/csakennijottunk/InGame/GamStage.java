@@ -18,17 +18,18 @@ import hu.csanyzeg.master.MyBaseClasses.UI.MyLabel;
 
 public class GamStage extends MyStage {
 
-    public Vector2 fisherMan = new Vector2(200, 100);
-    public Vector2 fishingRod = new Vector2(150, 0);
+    public Vector2 fisherMan = new Vector2(200, 200);
+    public Vector2 fishingRod = new Vector2(150, 100);
     public OneSpriteStaticActor fishingRodEndActor;
     public float degree = 45;
     public float v = 100;
     public MyLabel vLabel;
+    IngameBackground ingameBackground2;
 
     public void generateFlying(){
         ArrayList<Actor> actors = new ArrayList<Actor>();
         for (Actor a:getActors()) {
-            if (a instanceof hu.gamemasters.fishing.FlyActor){
+            if (a instanceof FlyActor){
                 actors.add(a);
             }
         }
@@ -37,13 +38,13 @@ public class GamStage extends MyStage {
         }
         Ballistics2 ballistics2 = new Ballistics2(v, MathUtils.degreesToRadians * degree, getFishingRodEnd().x, getFishingRodEnd().y);
         for(float x = getFishingRodEnd().x; x < getViewport().getWorldWidth(); x+=20) {
-            addActor(new hu.gamemasters.fishing.FlyActor(game, x, ballistics2.getY(x)));
+            addActor(new FlyActor(game, x, ballistics2.getY(x)));
         }
     }
 
     public Vector2 getFishingRodEnd(){
         Vector2 fishingRodEnd = new Vector2(fishingRod);
-        fishingRodEnd.rotateDeg(degree);
+        fishingRodEnd.rotate(degree);
         fishingRodEnd.add(fisherMan);
         return fishingRodEnd;
     }
@@ -51,6 +52,7 @@ public class GamStage extends MyStage {
     public GamStage(MyGame game) {
         super(new ResponseViewport(512), game);
         //addActor(new GameActor(game));
+        addBackButtonScreenBackByStackPopListener();
         addListener(new ClickListener(){
             @Override
             public void touchDragged(InputEvent event, float x, float y, int pointer) {
@@ -69,10 +71,14 @@ public class GamStage extends MyStage {
                 addActor(new FishFoodActor(game, new Ballistics2(v, MathUtils.degreesToRadians * degree, getFishingRodEnd().x, getFishingRodEnd().y), 10));
             }
         });
-        addActor(vLabel = new MyLabel(game, "ASD", new Label.LabelStyle(game.getMyAssetManager().getFont("arial.ttf"), null)));
+        addActor(vLabel = new MyLabel(game, "ASD", new Label.LabelStyle(game.getMyAssetManager().getFont("alegreyaregular.otf"), null)));
         addActor(new TesztActor(game, fisherMan.x, fisherMan.y));
         addActor(new TesztActor(game, fishingRod.x, fishingRod.y));
         addActor(fishingRodEndActor = new TesztActor(game, getFishingRodEnd().x, getFishingRodEnd().y));
+
+        ingameBackground2 = new IngameBackground(game);
+        addActor(ingameBackground2);
+        ingameBackground2.setZIndex(-95);
     }
 
     public float widthToSpeed(float x) {
