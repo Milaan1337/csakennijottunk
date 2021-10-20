@@ -42,6 +42,7 @@ class PlayLabel extends MyLabel {
         super(game, text, style);
         this.setFontScale((float) 0.40);
         this.setPosition(43,65);
+        this.setSize(40,20);
         this.addListener(b1 = new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
@@ -59,6 +60,7 @@ class ExitLabel extends MyLabel {
         super(game, text, style);
         this.setFontScale((float) 0.40);
         this.setPosition(43,65);
+        this.setSize(40,20);
         this.addListener(b1 = new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
@@ -75,7 +77,8 @@ class CreditLabel extends MyLabel{
     public CreditLabel(MyGame game, CharSequence text, LabelStyle style) {
         super(game, text, style);
         this.setFontScale((float) 0.40);
-        this.setPosition(43,65);
+        this.setSize(40,20);
+        this.setPosition(43,0);
         this.setZIndex(15);
         this.addListener(a1 = new ClickListener() {
             @Override
