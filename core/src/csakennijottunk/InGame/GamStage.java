@@ -18,13 +18,14 @@ import hu.csanyzeg.master.MyBaseClasses.UI.MyLabel;
 
 public class GamStage extends MyStage {
 
-    public Vector2 fisherMan = new Vector2(200, 200);
-    public Vector2 fishingRod = new Vector2(150, 25);
+    public Vector2 fisherMan = new Vector2(200, 190);
+    public Vector2 fishingRod = new Vector2(10, 10);
     public OneSpriteStaticActor fishingRodEndActor;
     public float degree = 45;
     public float v = 100;
     public MyLabel vLabel;
     IngameBackground ingameBackground2;
+    TesztActor horgaszman;
 
     public void generateFlying(){
         ArrayList<Actor> actors = new ArrayList<Actor>();
@@ -71,10 +72,10 @@ public class GamStage extends MyStage {
                 addActor(new FishFoodActor(game, new Ballistics2(v, MathUtils.degreesToRadians * degree, getFishingRodEnd().x, getFishingRodEnd().y), 10));
             }
         });
-        addActor(vLabel = new MyLabel(game, "ASD", new Label.LabelStyle(game.getMyAssetManager().getFont("alegreyaregular.otf"), null)));
-        addActor(new TesztActor(game, fisherMan.x, fisherMan.y));
-        addActor(new TesztActor(game, fishingRod.x, fishingRod.y));
-        addActor(fishingRodEndActor = new TesztActor(game, getFishingRodEnd().x, getFishingRodEnd().y));
+        addActor(vLabel = new MyLabel(game, "", new Label.LabelStyle(game.getMyAssetManager().getFont("alegreyaregular.otf"), null)));
+        addActor(horgaszman = new TesztActor(game, fisherMan.x, fisherMan.y));
+        //addActor(new TesztActor(game, fishingRod.x, fishingRod.y));
+        addActor(fishingRodEndActor = new TesztActor2(game, getFishingRodEnd().x, getFishingRodEnd().y));
 
         ingameBackground2 = new IngameBackground(game);
         addActor(ingameBackground2);

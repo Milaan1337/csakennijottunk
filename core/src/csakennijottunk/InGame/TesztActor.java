@@ -9,5 +9,6 @@ public class TesztActor extends OneSpriteStaticActor {
         this.setX(x);
         this.setY(y);
         this.setSize(100,100);
+        this.setZIndex(79);
     }
 }
