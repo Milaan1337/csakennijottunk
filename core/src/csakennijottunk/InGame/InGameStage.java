@@ -33,11 +33,11 @@ public class InGameStage extends MyStage {
         addBackButtonScreenBackByStackPopListener();
         setCameraResetToCenterOfScreen();
         basicVariables = new BasicVariables();
-        boolean isRod = basicVariables.vanBot();
-        if (isRod == false) {
-            rodShop = new InActors(game);
-            addActor(rodShop);
-        }
+        //boolean isRod = basicVariables.vanBot();
+        //if (isRod == false) {
+           // rodShop = new InActors(game);
+           // addActor(rodShop);
+       // }
 
     }
 }
