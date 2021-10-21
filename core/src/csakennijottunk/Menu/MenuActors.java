@@ -123,7 +123,7 @@ class PlayLabel extends MyLabel {
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 super.clicked(event, x, y);
-                game.setScreen(new ShopScreen(game));
+                game.setScreen(new InGameScreen(game));
             }
         });
 

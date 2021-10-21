@@ -27,8 +27,16 @@ public class BasicVariables {
         return damil;
     }
 
+    public void setDamil(int amount){
+        damil = damil + amount;
+    }
+
     public int getCsali(){
         return bait;
+    }
+
+    public void setCsali(int amount){
+        bait = bait + amount;
     }
 
     public boolean getRodLvl2(){
