@@ -1,5 +1,7 @@
 package csakennijottunk.credit;
 
+import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
+
 import hu.csanyzeg.master.MyBaseClasses.Game.MyGame;
 import hu.csanyzeg.master.MyBaseClasses.Scene2D.MyActor;
 import hu.csanyzeg.master.MyBaseClasses.Scene2D.MyStage;
@@ -13,5 +15,25 @@ public class CreditActor extends OneSpriteStaticActor {
 
 
 
+    }
+}
+
+class MusicActor extends OneSpriteStaticActor {
+    ClickListener d2;
+    boolean isMuted = false;
+    public MusicActor(MyGame game) {
+        super(game, "SoundON.png");
+        this.setSize(10, 10);
+        this.setPosition(115, 0);
+    }
+}
+
+class MusicActor2 extends OneSpriteStaticActor {
+    ClickListener d2;
+    boolean isMuted = false;
+    public MusicActor2(MyGame game) {
+        super(game, "SoundOFF.png");
+        this.setSize(10, 10);
+        this.setPosition(115, 0);
     }
 }
