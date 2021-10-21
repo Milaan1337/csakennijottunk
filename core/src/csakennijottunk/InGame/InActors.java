@@ -31,22 +31,7 @@ class DamilLabel extends MyLabel{
 
     }
 }
-class PlayLabel extends MyLabel{
-    public PlayLabel(MyGame game, CharSequence text, LabelStyle style) {
-        super(game, text, style);
-        this.setFontScale((float) 0.40);
-        this.setPosition(43,65);
 
-    }
-}
-class CreditLabel extends MyLabel{
-    public CreditLabel(MyGame game, CharSequence text, LabelStyle style) {
-        super(game, text, style);
-        this.setFontScale((float) 0.40);
-        this.setPosition(43,65);
-
-    }
-}
 class DamilActor extends OneSpriteStaticActor {
     ClickListener b1;
     public DamilActor(MyGame game) {
