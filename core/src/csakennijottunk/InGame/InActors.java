@@ -3,7 +3,6 @@ package csakennijottunk.InGame;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 
-import csakennijottunk.Menu.MenuScreen;
 import hu.csanyzeg.master.MyBaseClasses.Game.MyGame;
 import hu.csanyzeg.master.MyBaseClasses.Scene2D.OneSpriteStaticActor;
 import hu.csanyzeg.master.MyBaseClasses.UI.MyLabel;
@@ -42,7 +41,7 @@ class DamilActor extends OneSpriteStaticActor {
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 super.clicked(event, x, y);
-                game.setScreen(new MenuScreen(game));
+
             }
         });
     }
@@ -67,6 +66,77 @@ class CsaliLabel extends MyLabel {
         super(game, text, style);
         this.setSize(10, 10);
         this.setZIndex(25);
+
+    }
+}
+
+class ShopLabel extends MyLabel {
+    ClickListener k1;
+    public ShopLabel(MyGame game, CharSequence text, LabelStyle style) {
+        super(game, text, style);
+        this.setFontScale((float) 0.40);
+        this.setSize(40,40);
+        this.setPosition(75,10);
+        this.addListener(k1 = new ClickListener() {
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                super.clicked(event, x, y);
+                game.setScreen(new RodShopScreen(game));
+            }
+        });
+
+    }
+}
+
+
+class RodShopLabel extends MyLabel {
+    ClickListener i1;
+    public RodShopLabel(MyGame game, CharSequence text, LabelStyle style) {
+        super(game,text, style);
+        this.setFontScale((float) 0.40);
+        this.setSize(40,40);
+        this.setPosition(75,10);
+        this.addListener(i1 = new ClickListener() {
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                super.clicked(event, x, y);
+                game.setScreen(new RodShopScreen(game));
+            }
+        });
+
+    }
+}
+class CsaliShopLabel extends MyLabel {
+    ClickListener i1;
+    public CsaliShopLabel(MyGame game, CharSequence text, LabelStyle style) {
+        super(game,text, style);
+        this.setFontScale((float) 0.40);
+        this.setSize(40,40);
+        this.setPosition(75,10);
+        this.addListener(i1 = new ClickListener() {
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                super.clicked(event, x, y);
+                game.setScreen(new RodShopScreen(game));
+            }
+        });
+
+    }
+}
+class DamilShopLabel extends MyLabel {
+    ClickListener i1;
+    public DamilShopLabel(MyGame game, CharSequence text, LabelStyle style) {
+        super(game,text, style);
+        this.setFontScale((float) 0.40);
+        this.setSize(40,40);
+        this.setPosition(75,10);
+        this.addListener(i1 = new ClickListener() {
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                super.clicked(event, x, y);
+                game.setScreen(new RodShopScreen(game));
+            }
+        });
 
     }
 }
@@ -135,6 +205,7 @@ class PlayLabel1 extends MyLabel {
         super(game, text, style);
         this.setFontScale((float) 0.40);
         this.setPosition(30,10);
+        this.setSize(40,40);
         this.addListener(b1 = new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {

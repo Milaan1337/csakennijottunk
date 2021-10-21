@@ -7,6 +7,8 @@ import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 
 import csakennijottunk.InGame.InGameScreen;
+import csakennijottunk.InGame.RodShopScreen;
+import csakennijottunk.InGame.ShopScreen;
 import csakennijottunk.credit.CreditScreen;
 import hu.csanyzeg.master.MyBaseClasses.Game.MyGame;
 import hu.csanyzeg.master.MyBaseClasses.Scene2D.OneSpriteStaticActor;
@@ -121,7 +123,7 @@ class PlayLabel extends MyLabel {
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 super.clicked(event, x, y);
-                game.setScreen(new InGameScreen(game));
+                game.setScreen(new ShopScreen(game));
             }
         });
 

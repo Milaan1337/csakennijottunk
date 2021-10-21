@@ -15,6 +15,7 @@ public class InGameStage extends MyStage {
     MenuStage ms;
     BasicVariables basicVariables;
     PlayLabel1 playLabel1;
+    ShopLabel shopLabel;
     public InGameStage(MyGame game) {
         super(new ResponseViewport(90), game);
         header = new Header(game);
@@ -22,6 +23,8 @@ public class InGameStage extends MyStage {
         labelStyle = new Ls(game);
         playLabel1 = new PlayLabel1(game, "Start",labelStyle);
         addActor(playLabel1);
+        shopLabel = new ShopLabel(game, "Shop", labelStyle);
+        addActor(shopLabel);
         //MyLabel moneyLabel = new MyLabel(game,"Ugy tunik meg nincsen horgaszbotod. Vegyel egyet!", labelStyle);
         //addActor(moneyLabel);
         //moneyLabel.setFontScale((float) 0.1);

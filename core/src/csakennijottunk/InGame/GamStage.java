@@ -19,7 +19,7 @@ import hu.csanyzeg.master.MyBaseClasses.UI.MyLabel;
 public class GamStage extends MyStage {
 
     public Vector2 fisherMan = new Vector2(200, 200);
-    public Vector2 fishingRod = new Vector2(150, 100);
+    public Vector2 fishingRod = new Vector2(150, 25);
     public OneSpriteStaticActor fishingRodEndActor;
     public float degree = 45;
     public float v = 100;
