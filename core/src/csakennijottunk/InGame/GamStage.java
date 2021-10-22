@@ -486,11 +486,11 @@ public class GamStage extends MyStage {
         fisherManActor.setPosition(330, 230);
         m = new MusicActor(game);
         m.setSize(133, 133);
-        m.setPosition(1500, 0);
+        m.setPosition(1732, 0);
         m.setZIndex(50);
         m2 = new MusicActor2(game);
         m2.setSize(133, 133);
-        m2.setPosition(1500, 0);
+        m2.setPosition(1732, 0);
         m2.setZIndex(50);
         basicVariables = new BasicVariables();
         if (basicVariables.getIsPlaying() == true) {
