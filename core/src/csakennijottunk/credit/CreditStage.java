@@ -26,11 +26,17 @@ public class CreditStage extends MyStage {
     ClickListener mc2;
     CreditlistActor Developers;
     BasicVariables basicVariables;
+    BackLabel backLabel;
     Music music = game.getMyAssetManager().getMusic("music.wav");
     public CreditStage(MyGame game) {
         super(new ResponseViewport(90), game);
         setCameraResetToCenterOfScreen();
         addBackButtonScreenBackByStackPopListener();
+        labelStyle = new Ls(game);
+        backLabel = new BackLabel(game,"Back", labelStyle);
+        backLabel.setPositionMiddle();
+        addActor(backLabel);
+        backLabel.setZIndex(100);
         MenuBg = new CreditActor(game);
         addActor(MenuBg);
         Developers = new CreditlistActor(game);
