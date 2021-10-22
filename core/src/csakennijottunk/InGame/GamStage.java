@@ -151,7 +151,7 @@ public class GamStage extends MyStage {
                                 addActor(castRod);
                                 castRod.setSize(1000,1000);
                                 castRod.setPosition(500,100);
-                                castRod.setZIndex(10000);
+                                castRod.setZIndex(2147483638);
                                 isOnWindow = true;
                                 castRod.addListener(new ClickListener(){
                                     @Override
@@ -210,7 +210,7 @@ public class GamStage extends MyStage {
                                             addActor(twoWormsLeft);
                                             twoWormsLeft.setPosition(2000/2 - 500,100);
                                             twoWormsLeft.setSize(1000,1000);
-                                            twoWormsLeft.setZIndex(10000);
+                                            twoWormsLeft.setZIndex(2147483638);
                                             isOnWindow = true;
                                             twoWormsLeft.addListener(new ClickListener(){
                                                 @Override
@@ -244,7 +244,7 @@ public class GamStage extends MyStage {
                                             addActor(oneWormsLeft);
                                             oneWormsLeft.setPosition(2000/2 - 500,100);
                                             oneWormsLeft.setSize(1000,1000);
-                                            oneWormsLeft.setZIndex(10000);
+                                            oneWormsLeft.setZIndex(2147483638);
                                             isOnWindow = true;
                                             oneWormsLeft.addListener(new ClickListener(){
                                                 @Override
@@ -276,9 +276,9 @@ public class GamStage extends MyStage {
                                         }if (worms == 0){
                                             OneSpriteStaticActor noWormsLeft = new OneSpriteStaticActor(game,"NoWormleft.png");
                                             addActor(noWormsLeft);
-                                            noWormsLeft.setPosition(2000/2 - 500,100);
+                                            noWormsLeft.setPosition(2000/2 - 500,250);
                                             noWormsLeft.setSize(1000,1000);
-                                            noWormsLeft.setZIndex(10000);
+                                            noWormsLeft.setZIndex(2147483638);
                                             isOnWindow = true;
                                             OneSpriteStaticActor restartButton = new OneSpriteStaticActor(game,"Restartbutton.png");
                                             addActor(restartButton);
@@ -309,7 +309,7 @@ public class GamStage extends MyStage {
                                         addActor(niceCatch);
                                         niceCatch.setSize(1000,1000);
                                         niceCatch.setPosition(2000/2 - 500,250);
-                                        niceCatch.setZIndex(100000);
+                                        niceCatch.setZIndex(2147483638);
                                         isOnWindow = true;
                                         System.out.println("jó");
                                         OneSpriteStaticActor restartButton = new OneSpriteStaticActor(game,"Restartbutton.png");
@@ -345,7 +345,7 @@ public class GamStage extends MyStage {
                                             addActor(twoWormsLeft);
                                             twoWormsLeft.setPosition(2000/2 - 500,100);
                                             twoWormsLeft.setSize(1000,1000);
-                                            twoWormsLeft.setZIndex(10000);
+                                            twoWormsLeft.setZIndex(2147483638);
                                             isOnWindow = true;
                                             twoWormsLeft.addListener(new ClickListener(){
                                                 @Override
@@ -379,7 +379,7 @@ public class GamStage extends MyStage {
                                             addActor(oneWormsLeft);
                                             oneWormsLeft.setPosition(2000/2 - 500,100);
                                             oneWormsLeft.setSize(1000,1000);
-                                            oneWormsLeft.setZIndex(10000);
+                                            oneWormsLeft.setZIndex(2147483638);
                                             isOnWindow = true;
                                             oneWormsLeft.addListener(new ClickListener(){
                                                 @Override
@@ -411,9 +411,9 @@ public class GamStage extends MyStage {
                                         }if (worms == 0){
                                             OneSpriteStaticActor noWormsLeft = new OneSpriteStaticActor(game,"NoWormleft.png");
                                             addActor(noWormsLeft);
-                                            noWormsLeft.setPosition(2000/2 - 500,100);
+                                            noWormsLeft.setPosition(2000/2 - 500,250);
                                             noWormsLeft.setSize(1000,1000);
-                                            noWormsLeft.setZIndex(10000);
+                                            noWormsLeft.setZIndex(2147483638);
                                             isOnWindow = true;
                                             OneSpriteStaticActor restartButton = new OneSpriteStaticActor(game,"Restartbutton.png");
                                             addActor(restartButton);
@@ -444,7 +444,7 @@ public class GamStage extends MyStage {
                                         addActor(niceCatch);
                                         niceCatch.setSize(1000,1000);
                                         niceCatch.setPosition(2000/2 - 500,250);
-                                        niceCatch.setZIndex(10000);
+                                        niceCatch.setZIndex(2147483638);
                                         isOnWindow = true;
                                         System.out.println("jó");
                                         OneSpriteStaticActor restartButton = new OneSpriteStaticActor(game,"Restartbutton.png");
