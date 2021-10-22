@@ -84,6 +84,7 @@ public class GamStage extends MyStage {
     public GamStage(MyGame game) {
         super(new ResponseViewport(1200), game);
         //addActor(new GameActor(game));
+        //setCameraResetToLeftBottomOfScreen();
         addBackButtonScreenBackByStackPopListener();
         //generateFlying();
        sensorActor = new OneSpriteStaticActor(game,"badlogic.jpg");
