@@ -2,8 +2,8 @@ package csakennijottunk.Menu;
 import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
-import com.badlogic.gdx.utils.viewport.ExtendViewport;
 
+import csakennijottunk.InGame.BasicVariables;
 import hu.csanyzeg.master.MyBaseClasses.Game.MyGame;
 import hu.csanyzeg.master.MyBaseClasses.Scene2D.MyStage;
 import hu.csanyzeg.master.MyBaseClasses.Scene2D.ResponseViewport;
@@ -12,13 +12,13 @@ public class MenuStage extends MyStage {
     BackGroundActor h;
     MusicActor m;
     MusicActor2 m2;
-    ClickListener d2;
-    ClickListener d3;
+    ClickListener mc1;
+    ClickListener mc2;
     Ls2 ls2;
     PlayLabel playLabel2;
     CreditLabel creditLabel2;
     ExitLabel exitLabel;
-    static boolean isPlaying = true;
+    BasicVariables basicVariables;
     Music music = game.getMyAssetManager().getMusic("music.wav");
     public MenuStage(MyGame game) {
         super(new ResponseViewport(90), game);
@@ -43,18 +43,18 @@ public class MenuStage extends MyStage {
         m = new MusicActor(game);
         m2 = new MusicActor2(game);
         m2.setZIndex(-5);
-        if (isPlaying == true) {
+        basicVariables = new BasicVariables();
+        if (basicVariables.getIsPlaying() == true) {
             addActor(m);
         }
         else{
             addActor(m2);
         }
         m.setZIndex(-5);
-        if (isPlaying == true) {
+        if (basicVariables.getIsPlaying() == true) {
             music.play();
-            //isPlaying = true;
         }
-        m.addListener(d2 = new ClickListener(){
+        m.addListener(mc1 = new ClickListener(){
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 super.clicked(event, x, y);
@@ -65,7 +65,7 @@ public class MenuStage extends MyStage {
         });
 
 
-        m2.addListener(d3 = new ClickListener(){
+        m2.addListener(mc2 = new ClickListener(){
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 super.clicked(event, x, y);
@@ -76,20 +76,20 @@ public class MenuStage extends MyStage {
         });
     }
     public boolean getState(){
-        return isPlaying;
+        return basicVariables.getIsPlaying();
     }
 
     public void playMusic(){
-        if (isPlaying == false){
+        if (basicVariables.getIsPlaying() == false){
             music.play();
         }
-        isPlaying = true;
+        basicVariables.setIsPlaying(true);
     }
 
     public void stopMusic(){
-        if (isPlaying == true){
+        if (basicVariables.getIsPlaying() == true){
             music.pause();
         }
-        isPlaying = false;
+        basicVariables.setIsPlaying(false);
     }
 }

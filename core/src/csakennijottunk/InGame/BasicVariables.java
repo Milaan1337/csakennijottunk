@@ -13,6 +13,7 @@ public class BasicVariables {
     static int money = 10;
     static int bait = 1;
     static int damil = 1;
+    static boolean isPlaying = true;
 
 
     static int basicrodPrice = 50;
@@ -62,5 +63,12 @@ public class BasicVariables {
     public void setMoney(int coin){
         money = coin;
     }
+
+    public boolean getIsPlaying(){return isPlaying;}
+
+    public void setIsPlaying(boolean set){
+        isPlaying = set;
+    }
+
 
 }

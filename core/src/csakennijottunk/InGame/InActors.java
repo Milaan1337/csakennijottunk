@@ -216,3 +216,23 @@ class PlayLabel1 extends MyLabel {
 
     }
 }
+
+class MusicActor extends OneSpriteStaticActor {
+    ClickListener d2;
+    boolean isMuted = false;
+    public MusicActor(MyGame game) {
+        super(game, "SoundON.png");
+        this.setSize(10, 10);
+        this.setPosition(115, 0);
+    }
+}
+
+class MusicActor2 extends OneSpriteStaticActor {
+    ClickListener d2;
+    boolean isMuted = false;
+    public MusicActor2(MyGame game) {
+        super(game, "SoundOFF.png");
+        this.setSize(10, 10);
+        this.setPosition(115, 0);
+    }
+}
