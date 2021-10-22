@@ -4,6 +4,7 @@ import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 
 import hu.csanyzeg.master.MyBaseClasses.Game.MyGame;
+import hu.csanyzeg.master.MyBaseClasses.Scene2D.MyActor;
 import hu.csanyzeg.master.MyBaseClasses.Scene2D.OneSpriteStaticActor;
 import hu.csanyzeg.master.MyBaseClasses.UI.MyLabel;
 
@@ -61,6 +62,7 @@ class CsaliActor extends OneSpriteStaticActor {
     }
 }
 
+
 class CsaliLabel extends MyLabel {
     public CsaliLabel(MyGame game, CharSequence text, LabelStyle style) {
         super(game, text, style);
@@ -68,6 +70,14 @@ class CsaliLabel extends MyLabel {
         this.setZIndex(25);
 
     }
+}
+
+class FishFood extends OneSpriteStaticActor {
+    public FishFood(MyGame game){
+        super(game, "Fishfoodactor.png");
+        this.setSize(20,20);
+    }
+
 }
 
 class ShopLabel extends MyLabel {
