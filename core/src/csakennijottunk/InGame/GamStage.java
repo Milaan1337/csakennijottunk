@@ -21,8 +21,6 @@ public class GamStage extends MyStage {
 
     public Vector2 fisherMan = new Vector2(200, 190);
     public Vector2 fishingRod = new Vector2(10, 10);
-    public float degree = 45;
-    public float v = 100;
     public MyLabel vLabel;
     IngameBackground ingameBackground2;
     Music music = game.getMyAssetManager().getMusic("music.wav");
@@ -43,15 +41,15 @@ public class GamStage extends MyStage {
         for (Actor a:actors) {
             getActors().removeValue(a, true);
         }
-        Ballistics2 ballistics2 = new Ballistics2(v, MathUtils.degreesToRadians * degree, getFishingRodEnd().x, getFishingRodEnd().y);
-        for(float x = getFishingRodEnd().x; x < getViewport().getWorldWidth(); x+=20) {
+        Ballistics2 ballistics2 = new Ballistics2(fisherManActor.v0, MathUtils.degreesToRadians * fisherManActor.degree, fisherManActor.get_handEnd().x, fisherManActor.get_handEnd().y);
+        for(float x = fisherManActor.get_handEnd().x; x < getViewport().getWorldWidth(); x+=20) {
             addActor(new FlyActor(game, x, ballistics2.getY(x)));
         }
     }
 
     public Vector2 getFishingRodEnd(){
         Vector2 fishingRodEnd = new Vector2(fishingRod);
-        fishingRodEnd.rotate(degree);
+        fishingRodEnd.rotate(fisherManActor.degree);
         fishingRodEnd.add(fisherMan);
         return fishingRodEnd;
     }
@@ -64,13 +62,9 @@ public class GamStage extends MyStage {
             @Override
             public void touchDragged(InputEvent event, float x, float y, int pointer) {
                 System.out.println("x= " + x  + " y= " + y);
-                degree = heightToDegree(y);
-                v = widthToSpeed(x);
-                fisherManActor.set_angle(degree);
-                // System.out.println(widthToSpeed(x) + " " + degree);
-                //fishermanHandActor.setPosition(getFishingRodEnd().x, getFishingRodEnd().y);
-                //fishermanHandActor.setRotation(degree);
-                vLabel.setText("" + (int)degree + "°");
+                fisherManActor.set_angle(heightToDegree(y));
+                fisherManActor.set_speed(widthToSpeed(x));
+                vLabel.setText("" + (int)fisherManActor.degree + "°");
                 generateFlying();
                 super.touchDragged(event, x, y, pointer);
             }
@@ -78,7 +72,7 @@ public class GamStage extends MyStage {
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
                 super.touchUp(event, x, y, pointer, button);
-                addActor(new FishFoodActor(game, new Ballistics2(v, MathUtils.degreesToRadians * degree, getFishingRodEnd().x, getFishingRodEnd().y), 10));
+                addActor(new FishFoodActor(game, new Ballistics2(fisherManActor.v0, MathUtils.degreesToRadians * fisherManActor.degree, fisherManActor.get_handEnd().x, fisherManActor.get_handEnd().y), 10));
             }
         });
         addActor(vLabel = new MyLabel(game, "", new Label.LabelStyle(game.getMyAssetManager().getFont("alegreyaregular.otf"), null)));
