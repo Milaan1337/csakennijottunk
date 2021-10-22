@@ -71,7 +71,6 @@ public class GamStage extends MyStage {
         super(new ResponseViewport(1200), game);
         //addActor(new GameActor(game));
         addBackButtonScreenBackByStackPopListener();
-       whiteActor = new WhiteActor(game,0,100);
        sensorActor = new OneSpriteStaticActor(game,"badlogic.jpg");
        sensorActor.setSize(1500,250);
        sensorActor.setPosition(750,0);
@@ -123,16 +122,16 @@ public class GamStage extends MyStage {
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
                 super.touchUp(event, x, y, pointer, button);
-                if (baitActor != null){
-                    baitActor.remove();
-                }
-                addActor(baitActor = new BaitActor(game, new Ballistics2(fisherManActor.v0, MathUtils.degreesToRadians * fisherManActor.degree, fisherManActor.get_handEnd().x, fisherManActor.get_handEnd().y), 10));
                 if (isOnWindow == false) {
                     if (fisherManActor.get_hand() == FisherManGroup.Handtype.hand) {
                         addActor(fishFoodActor = new FishFoodActor(game, new Ballistics2(fisherManActor.v0, MathUtils.degreesToRadians * fisherManActor.degree, fisherManActor.get_handEnd().x, fisherManActor.get_handEnd().y), 80));
 
                     }else{
                         System.out.println("ok");
+                        if (baitActor != null){
+                            baitActor.remove();
+                        }
+                        addActor(baitActor = new BaitActor(game, new Ballistics2(fisherManActor.v0, MathUtils.degreesToRadians * fisherManActor.degree, fisherManActor.get_handEnd().x, fisherManActor.get_handEnd().y), 10));
                         addActor(new BaitActor(game, new Ballistics2(fisherManActor.v0, MathUtils.degreesToRadians * fisherManActor.degree, fisherManActor.get_handEnd().x, fisherManActor.get_handEnd().y), 150));
                     }
                 }
