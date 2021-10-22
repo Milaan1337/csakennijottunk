@@ -536,7 +536,7 @@ public class GamStage extends MyStage {
 
     public float widthToSpeed(float x) {
         float d = x / getViewport().getWorldWidth() * 100;
-        return d < 0 ? 0 : d > 100 ? 100 : d;
+        return d < 1 ? 1 : d > 100 ? 100 : d;
     }
 
     public float heightToDegree(float y){
