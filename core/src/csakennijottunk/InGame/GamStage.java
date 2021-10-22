@@ -503,7 +503,7 @@ public class GamStage extends MyStage {
 
             }
         });
-        addActor(vLabel = new MyLabel(game, "", new Label.LabelStyle(game.getMyAssetManager().getFont("alegreyaregular.otf"), null)));
+        //addActor(vLabel = new MyLabel(game, "", new Label.LabelStyle(game.getMyAssetManager().getFont("alegreyaregular.otf"), null)));
         addActor(ingameBackground2 = new IngameBackground(game));
         ingameBackground2.setHeightWhithAspectRatio(getViewport().getWorldHeight());
         addActor(fisherManActor = new FisherManGroup(game));
@@ -546,13 +546,15 @@ public class GamStage extends MyStage {
                 addActor(m);
             }
         });
-        addActor(vLabel = new MyLabel(game, "ASD", new Label.LabelStyle(game.getMyAssetManager().getFont("alegreyaregular.otf"), null)));
+        addActor(vLabel = new MyLabel(game, "", new Label.LabelStyle(game.getMyAssetManager().getFont("alegreyaregular.otf"), null)));
         addActor(dLabel = new MyLabel(game, "", new Label.LabelStyle(game.getMyAssetManager().getFont("alegreyaregular.otf"), null)));
         dLabel.setPosition(200,25);
+        vLabel.setFontScale(3);
+        dLabel.setFontScale(3);
         //addActor(new TesztActor(game, fisherMan.x, fisherMan.y));
         //addActor(new TesztActor(game, fishingRod.x, fishingRod.y));
         //addActor(fishingRodEndActor = new TesztActor2(game, getFishingRodEnd().x, getFishingRodEnd().y));
-
+        generateFlying();
     }
 
     public float widthToSpeed(float x) {

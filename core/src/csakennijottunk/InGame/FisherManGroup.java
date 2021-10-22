@@ -31,6 +31,7 @@ public class FisherManGroup extends MyGroup {
         fisherManHandActor.setOrigin(topsolders.x, topsolders.y);
         fisherManRodActor.setOrigin(topsolders.x, topsolders.y);
         set_hand(Handtype.hand);
+        set_angle(degree);
     }
 
     void set_angle(float degree){
@@ -57,9 +58,11 @@ public class FisherManGroup extends MyGroup {
             case none:
                 fisherManHandActor.setVisible(true);
                 fisherManRodActor.setVisible(false);
+                break;
             case bugFix:
                 fisherManHandActor.setVisible(false);
                 fisherManRodActor.setVisible(true);
+                break;
         }
     }
 
