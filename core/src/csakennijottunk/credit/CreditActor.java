@@ -18,6 +18,15 @@ public class CreditActor extends OneSpriteStaticActor {
     }
 }
 
+class CreditlistActor extends OneSpriteStaticActor {
+    public CreditlistActor(MyGame game) {
+        super(game, "Developers.png");
+        this.setSize(100, 150);
+        this.setPosition(0, -60);
+
+
+    }
+}
 class MusicActor extends OneSpriteStaticActor {
     ClickListener d2;
     boolean isMuted = false;

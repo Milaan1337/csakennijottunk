@@ -1,14 +1,11 @@
 package csakennijottunk.Menu;
 
-import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 
 import csakennijottunk.InGame.InGameScreen;
-import csakennijottunk.InGame.RodShopScreen;
-import csakennijottunk.InGame.ShopScreen;
 import csakennijottunk.credit.CreditScreen;
 import hu.csanyzeg.master.MyBaseClasses.Game.MyGame;
 import hu.csanyzeg.master.MyBaseClasses.Scene2D.OneSpriteStaticActor;

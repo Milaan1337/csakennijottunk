@@ -8,45 +8,6 @@ import hu.csanyzeg.master.MyBaseClasses.Scene2D.MyActor;
 import hu.csanyzeg.master.MyBaseClasses.Scene2D.OneSpriteStaticActor;
 import hu.csanyzeg.master.MyBaseClasses.UI.MyLabel;
 
-public class InActors extends OneSpriteStaticActor {
-    ClickListener c1;
-    public InActors(MyGame game) {
-        super(game, "DefaultRodbg.png");
-        this.setSize(20,10);
-        this.setPosition(45 - 10, 50);
-        this.addListener(c1 = new ClickListener(){
-            @Override
-            public void clicked(InputEvent event, float x, float y) {
-                super.clicked(event, x, y);
-                game.setScreen(new RodShopScreen(game));
-            }
-        });
-    }
-}
-class DamilLabel extends MyLabel{
-    public DamilLabel(MyGame game, CharSequence text, LabelStyle style) {
-        super(game, text, style);
-        this.setFontScale((float) 0.40);
-        this.setSize(10,10);
-
-    }
-}
-
-class DamilActor extends OneSpriteStaticActor {
-    ClickListener b1;
-    public DamilActor(MyGame game) {
-        super(game, "Damil.png");
-        this.setSize(20,10);
-        this.setPosition(25, 80);
-        this.addListener(b1 = new ClickListener(){
-            @Override
-            public void clicked(InputEvent event, float x, float y) {
-                super.clicked(event, x, y);
-
-            }
-        });
-    }
-}
 class CsaliActor extends OneSpriteStaticActor {
     ClickListener d1;
     public CsaliActor(MyGame game){
@@ -63,92 +24,14 @@ class CsaliActor extends OneSpriteStaticActor {
 }
 
 
-class CsaliLabel extends MyLabel {
-    public CsaliLabel(MyGame game, CharSequence text, LabelStyle style) {
-        super(game, text, style);
-        this.setSize(10, 10);
-        this.setZIndex(25);
-
-    }
-}
-
 class FishFood extends OneSpriteStaticActor {
     public FishFood(MyGame game){
         super(game, "Fishfoodactor.png");
-        this.setSize(20,20);
+        this.setSize(15,20);
+
+
     }
 
-}
-
-class ShopLabel extends MyLabel {
-    ClickListener k1;
-    public ShopLabel(MyGame game, CharSequence text, LabelStyle style) {
-        super(game, text, style);
-        this.setFontScale((float) 0.40);
-        this.setSize(40,40);
-        this.setPosition(75,10);
-        this.addListener(k1 = new ClickListener() {
-            @Override
-            public void clicked(InputEvent event, float x, float y) {
-                super.clicked(event, x, y);
-                game.setScreen(new RodShopScreen(game));
-            }
-        });
-
-    }
-}
-
-
-class RodShopLabel extends MyLabel {
-    ClickListener i1;
-    public RodShopLabel(MyGame game, CharSequence text, LabelStyle style) {
-        super(game,text, style);
-        this.setFontScale((float) 0.40);
-        this.setSize(40,40);
-        this.setPosition(75,10);
-        this.addListener(i1 = new ClickListener() {
-            @Override
-            public void clicked(InputEvent event, float x, float y) {
-                super.clicked(event, x, y);
-                game.setScreen(new RodShopScreen(game));
-            }
-        });
-
-    }
-}
-class CsaliShopLabel extends MyLabel {
-    ClickListener i1;
-    public CsaliShopLabel(MyGame game, CharSequence text, LabelStyle style) {
-        super(game,text, style);
-        this.setFontScale((float) 0.40);
-        this.setSize(40,40);
-        this.setPosition(75,10);
-        this.addListener(i1 = new ClickListener() {
-            @Override
-            public void clicked(InputEvent event, float x, float y) {
-                super.clicked(event, x, y);
-                game.setScreen(new RodShopScreen(game));
-            }
-        });
-
-    }
-}
-class DamilShopLabel extends MyLabel {
-    ClickListener i1;
-    public DamilShopLabel(MyGame game, CharSequence text, LabelStyle style) {
-        super(game,text, style);
-        this.setFontScale((float) 0.40);
-        this.setSize(40,40);
-        this.setPosition(75,10);
-        this.addListener(i1 = new ClickListener() {
-            @Override
-            public void clicked(InputEvent event, float x, float y) {
-                super.clicked(event, x, y);
-                game.setScreen(new RodShopScreen(game));
-            }
-        });
-
-    }
 }
 
 class ShopBg extends OneSpriteStaticActor {
@@ -173,23 +56,6 @@ class Header extends OneSpriteStaticActor {
     }
 }
 
-class MoneyActor extends OneSpriteStaticActor {
-    public MoneyActor(MyGame game) {
-        super(game, "coin.png");
-        this.setSize(10,10);
-        this.setPosition(0,80);
-        this.setZIndex(15);
-    }
-}
-
-class MoneyLabel extends MyLabel {
-    public MoneyLabel(MyGame game, CharSequence text, LabelStyle style) {
-        super(game, text, style);
-        this.setPosition(15, 80);
-        this.setSize(10,10);
-        this.setZIndex(25);
-    }
-}
 class RodLvl1 extends OneSpriteStaticActor {
     public RodLvl1(MyGame game) {
         super(game, "DefaultRod.png");

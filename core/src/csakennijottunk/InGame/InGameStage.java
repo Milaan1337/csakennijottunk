@@ -12,13 +12,11 @@ import hu.csanyzeg.master.MyBaseClasses.Scene2D.ResponseViewport;
 import hu.csanyzeg.master.MyBaseClasses.UI.MyLabel;
 
 public class InGameStage extends MyStage {
-    InActors rodShop;
     Header header;
     Ls labelStyle;
     MenuStage ms;
     BasicVariables basicVariables;
     PlayLabel1 playLabel1;
-    ShopLabel shopLabel;
     MusicActor m;
     MusicActor2 m2;
     ClickListener mc1;
@@ -31,8 +29,6 @@ public class InGameStage extends MyStage {
         labelStyle = new Ls(game);
         playLabel1 = new PlayLabel1(game, "Start",labelStyle);
         addActor(playLabel1);
-        shopLabel = new ShopLabel(game, "Shop", labelStyle);
-        addActor(shopLabel);
         //MyLabel moneyLabel = new MyLabel(game,"Ugy tunik meg nincsen horgaszbotod. Vegyel egyet!", labelStyle);
         //addActor(moneyLabel);
         //moneyLabel.setFontScale((float) 0.1);
