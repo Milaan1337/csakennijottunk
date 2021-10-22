@@ -70,7 +70,7 @@ public class FisherManGroup extends MyGroup {
     Vector2 get_handEnd(){
         Vector2 r = new Vector2(getX(),getY());
         r.add(topsolders);
-        Vector2 forgatott = new Vector2(handtype == Handtype.hand ? arm : rod);
+        Vector2 forgatott = new Vector2((handtype == Handtype.hand ||  handtype == Handtype.none) ? arm : rod);
         forgatott.rotate(degree);
         r.add(forgatott);
         return  r;

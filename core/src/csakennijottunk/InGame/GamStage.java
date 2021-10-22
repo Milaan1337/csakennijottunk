@@ -139,6 +139,7 @@ public class GamStage extends MyStage {
                     if (fisherManActor.get_hand() == FisherManGroup.Handtype.hand) {
                         addActor(fishFoodActor = new FishFoodActor(game, new Ballistics2(fisherManActor.v0, MathUtils.degreesToRadians * fisherManActor.degree, fisherManActor.get_handEnd().x, fisherManActor.get_handEnd().y), 80));
                         fisherManActor.set_hand(FisherManGroup.Handtype.none);
+                        generateFlying();
                         IntervalTimer intervalTimer2 = new IntervalTimer(5,new IntervalTimerListener(){
                             @Override
                             public void onTick(IntervalTimer sender, float correction) {
@@ -160,6 +161,7 @@ public class GamStage extends MyStage {
                                         super.clicked(event, x, y);
                                         castRod.remove();
                                         fisherManActor.set_hand(FisherManGroup.Handtype.fishingrod);
+                                        generateFlying();
                                         IntervalTimer intervalTimer = new IntervalTimer(1,new IntervalTimerListener(){
                                             @Override
                                             public void onTick(IntervalTimer sender, float correction) {
@@ -201,6 +203,7 @@ public class GamStage extends MyStage {
                             }
                         });
                         fisherManActor.set_hand(FisherManGroup.Handtype.bugFix);
+                        generateFlying();
                         IntervalTimer intervalTimer = new IntervalTimer(5,new IntervalTimerListener(){
                             @Override
                             public void onRepeat(IntervalTimer sender) {
@@ -243,6 +246,7 @@ public class GamStage extends MyStage {
                                                             super.onStop(sender);
                                                             isOnWindow = false;
                                                             fisherManActor.set_hand(FisherManGroup.Handtype.fishingrod);
+                                                            generateFlying();
                                                         }
 
                                                         @Override
@@ -276,6 +280,7 @@ public class GamStage extends MyStage {
                                                             super.onStop(sender);
                                                             isOnWindow = false;
                                                             fisherManActor.set_hand(FisherManGroup.Handtype.fishingrod);
+                                                            generateFlying();
                                                         }
 
                                                         @Override
@@ -374,6 +379,7 @@ public class GamStage extends MyStage {
                                                             super.onStop(sender);
                                                             isOnWindow = false;
                                                             fisherManActor.set_hand(FisherManGroup.Handtype.fishingrod);
+                                                            generateFlying();
                                                         }
 
                                                         @Override
@@ -407,6 +413,7 @@ public class GamStage extends MyStage {
                                                             super.onStop(sender);
                                                             isOnWindow = false;
                                                             fisherManActor.set_hand(FisherManGroup.Handtype.fishingrod);
+                                                            generateFlying();
                                                         }
 
                                                         @Override

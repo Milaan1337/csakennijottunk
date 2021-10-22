@@ -50,7 +50,7 @@ public class BallisticActor extends OneSpriteStaticActor {
                 }
             }
         }
-        System.out.println(getDistanceInMeter());
+        //System.out.println(getDistanceInMeter());
     }
 
     @Override
