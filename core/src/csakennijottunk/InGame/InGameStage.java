@@ -24,8 +24,6 @@ public class InGameStage extends MyStage {
     Music music = game.getMyAssetManager().getMusic("music.wav");
     public InGameStage(MyGame game) {
         super(new ResponseViewport(90), game);
-        header = new Header(game);
-        addActor(header);
         labelStyle = new Ls(game);
         playLabel1 = new PlayLabel1(game, "Start",labelStyle);
         addActor(playLabel1);

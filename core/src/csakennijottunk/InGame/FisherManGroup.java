@@ -9,7 +9,8 @@ public class FisherManGroup extends MyGroup {
     public enum Handtype{
         hand,
         fishingrod,
-        none
+        none,
+        bugFix
     }
 
     public Handtype handtype = Handtype.hand;
@@ -54,8 +55,11 @@ public class FisherManGroup extends MyGroup {
                 fisherManRodActor.setVisible(true);
                 break;
             case none:
-                fisherManHandActor.setVisible(false);
+                fisherManHandActor.setVisible(true);
                 fisherManRodActor.setVisible(false);
+            case bugFix:
+                fisherManHandActor.setVisible(false);
+                fisherManRodActor.setVisible(true);
         }
     }
 
