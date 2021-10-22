@@ -10,7 +10,7 @@ public class FishFoodActor extends OneSpriteStaticActor {
     protected boolean flying = true;
 
     public FishFoodActor(MyGame game, Ballistics2 ballistics, float waterHeight) {
-        super(game, "Bait.png");
+        super(game, "Fishfoodactor.png");
         this.ballistics2 = ballistics;
         this.waterHeight = waterHeight;
         setWidth(25);
