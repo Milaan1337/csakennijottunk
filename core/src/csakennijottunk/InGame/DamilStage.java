@@ -10,17 +10,11 @@ import hu.csanyzeg.master.MyBaseClasses.Scene2D.ResponseViewport;
 import hu.csanyzeg.master.MyBaseClasses.UI.MyLabel;
 
 public class DamilStage extends MyStage {
-    DamilActor e;
     CsaliActor c;
     Header header;
     ShopBg shopBg;
     CsaliActor csaliActor;
-    CsaliLabel csaliLabel;
     Ls labelStyle;
-    DamilActor damilActor;
-    DamilLabel damilLabel;
-    MoneyLabel moneyLabel;
-    MoneyActor moneyActor;
     BasicVariables basicVariables;
     ClickListener clickListener;
     ClickListener c2;
@@ -49,45 +43,17 @@ public class DamilStage extends MyStage {
                         System.out.println(basicVariables.getRodLvl2());
                         vasarlasLabel.remove();
                         basicVariables.setMoney(money - 5);
-                        updateMoneyLabel();
                     }
                 }
             });
         }
 
-        moneyLabel = new MoneyLabel(game, "", labelStyle);
-        addActor(moneyLabel);
-        moneyLabel.setFontScale((float)0.40);
-        moneyLabel.setText(money);
-
-        moneyActor = new MoneyActor(game);
-        addActor(moneyActor);
-        moneyActor.setZIndex(15);
-        moneyLabel.setZIndex(15);
 
         csaliActor = new CsaliActor(game);
         csaliActor.setSize(15, 15);
         csaliActor.setPosition(50, 75);
         csaliActor.setZIndex(15);
         addActor(csaliActor);
-
-        csaliLabel = new CsaliLabel(game, "", labelStyle);
-        csaliLabel.setPosition(65, 80);
-        csaliLabel.setFontScale((float) 0.40);
-        addActor(csaliLabel);
-        csaliLabel.setText(csali);
-
-
-        damilLabel = new DamilLabel(game, "0", labelStyle);
-        damilLabel.setFontScale((float) 0.40);
-        damilLabel.setPosition(45,80);
-        addActor(damilLabel);
-        damilLabel.setZIndex(15);
-        damilLabel.setText(damil);
-
-        damilActor = new DamilActor(game);
-        addActor(damilActor);
-        damilActor.setZIndex(15);
 
 
         header = new Header(game);
@@ -101,16 +67,4 @@ public class DamilStage extends MyStage {
 
     }
 
-
-    public void updateMoneyLabel(){
-        moneyLabel.setText(basicVariables.getMoney());
-    }
-
-    public void updateBaitLabel() {
-        csaliLabel.setText(basicVariables.getCsali());
-    }
-
-    public void updateDamilLabel(){
-        damilLabel.setText(basicVariables.getDamil());
-    }
 }
