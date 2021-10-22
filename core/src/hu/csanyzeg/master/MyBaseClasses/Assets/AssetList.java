@@ -16,7 +16,7 @@ import java.util.Map;
 
 
 public class AssetList {
-    public static final String CHARS = "0123456789öüóqwertzuiopőúasdfghjkléáűíyxcvbnm'+!%/=()ÖÜÓQWERTZUIOPŐÚASDFGHJKLÉÁŰÍYXCVBNM?:_*<>#&@{}[],-.";
+    public static final String CHARS = "0123456789öüóqwertzuiopőúasdfghjkléáűíyxcvbnm'+!%/=()ÖÜÓQWERTZUIOPŐÚASDFGHJKLÉÁŰÍYXCVBNM?:_*<>#&@{}[],-.°";
     public static final String NUMBERS = "0123456789";
     public static final String SIGNS = "'+!%/=()?:_*<>#&@{}[],-.";
 

@@ -195,7 +195,13 @@ public class GamStage extends MyStage {
                         if (baitActor != null){
                             baitActor.remove();
                         }
-                        addActor(baitActor = new BaitActor(game, new Ballistics2(fisherManActor.v0, MathUtils.degreesToRadians * fisherManActor.degree, fisherManActor.get_handEnd().x, fisherManActor.get_handEnd().y), 120));
+                        addActor(baitActor = new BaitActor(game, new Ballistics2(fisherManActor.v0, MathUtils.degreesToRadians * fisherManActor.degree, fisherManActor.get_handEnd().x, fisherManActor.get_handEnd().y), 100));
+                        baitActor.setOnStopListener(new BallisticActor.OnStopListener() {
+                            @Override
+                            void stop(BallisticActor sender) {
+                                System.out.println("Most esett le.");
+                            }
+                        });
                         fisherManActor.set_hand(FisherManGroup.Handtype.bugFix);
                         IntervalTimer intervalTimer = new IntervalTimer(5,new IntervalTimerListener(){
                             @Override

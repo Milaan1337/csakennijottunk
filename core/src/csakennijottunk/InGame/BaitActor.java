@@ -12,6 +12,8 @@ import hu.csanyzeg.master.MyBaseClasses.SimpleWorld.SimpleWorld;
 
 public class BaitActor extends BallisticActor {
 
+    protected float lastDamilTime = 0f;
+    protected float damilTimeStep = 0.005f;
     protected Vector<WhiteActor> whiteActorVector = new Vector<>();
 
     public BaitActor(MyGame game, Ballistics2 ballistics, float waterHeight) {
@@ -23,15 +25,17 @@ public class BaitActor extends BallisticActor {
     public void act(float delta) {
         super.act(delta);
         if (flying) {
-            rotateBy(delta * 300);
-            float fally = (endpoint.y - startpoint.y) * (ballistics2.getPosition(getElapsedTime() * speed).x - startpoint.x) / (endpoint.x - startpoint.x) + startpoint.y;
-            WhiteActor w = new WhiteActor(game,
-                    ballistics2.getPosition(getElapsedTime() * speed).x, ballistics2.getPosition(getElapsedTime() * speed).y,
-                    ballistics2.getPosition(getElapsedTime() * speed).x, fally,
-                    (falltime - elapsedTime * speed) / (speed * 0.7f)
-            );
-            whiteActorVector.add(w);
-            getStage().addActor(w);
+            while (elapsedTime >= lastDamilTime) {
+                float fally = (endpoint.y - startpoint.y) * (ballistics2.getPosition(lastDamilTime * speed).x - startpoint.x) / (endpoint.x - startpoint.x) + startpoint.y;
+                WhiteActor w = new WhiteActor(game,
+                        ballistics2.getPosition(lastDamilTime * speed).x, ballistics2.getPosition(getElapsedTime() * speed).y,
+                        ballistics2.getPosition(lastDamilTime * speed).x, fally,
+                        (falltime - elapsedTime * speed) / (speed * 0.7f)
+                );
+                whiteActorVector.add(w);
+                getStage().addActor(w);
+                lastDamilTime += damilTimeStep;
+            }
         }
     }
 
