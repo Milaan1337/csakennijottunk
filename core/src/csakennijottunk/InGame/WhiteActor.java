@@ -19,7 +19,7 @@ public class WhiteActor extends OneSpriteStaticActor {
     }
 
     public WhiteActor(MyGame game, float fromx, float fromy, float tox, float toy, float falltime) {
-        super(game, "GreenCircle.png");
+        super(game, "Greencircle.png");
         setSize(3,3);
         this.fromx = fromx;
         this.fromy = fromy;
