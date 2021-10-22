@@ -159,6 +159,14 @@ class ShopBg extends OneSpriteStaticActor {
     }
 }
 
+class HandRod extends OneSpriteStaticActor {
+    public HandRod(MyGame game) {
+        super(game, "HandRod.png");
+        int size = 90;
+        this.setSize(size,80);
+    }
+}
+
 class Header extends OneSpriteStaticActor {
     public Header(MyGame game) {
         super(game, "fejlec.png");
