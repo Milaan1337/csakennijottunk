@@ -5,6 +5,7 @@ import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 
+import csakennijottunk.InGame.InGamePlayScreen;
 import csakennijottunk.InGame.InGameScreen;
 import csakennijottunk.credit.CreditScreen;
 import hu.csanyzeg.master.MyBaseClasses.Game.MyGame;
@@ -120,7 +121,7 @@ class PlayLabel extends MyLabel {
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 super.clicked(event, x, y);
-                game.setScreen(new InGameScreen(game));
+                game.setScreen(new InGamePlayScreen(game));
             }
         });
 
