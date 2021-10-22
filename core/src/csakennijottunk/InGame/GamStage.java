@@ -546,7 +546,7 @@ public class GamStage extends MyStage {
                 addActor(m);
             }
         });
-        addActor(vLabel = new MyLabel(game, "ASD", new Label.LabelStyle(game.getMyAssetManager().getFont("alegreyaregular.otf"), null)));
+        addActor(vLabel = new MyLabel(game, "", new Label.LabelStyle(game.getMyAssetManager().getFont("alegreyaregular.otf"), null)));
         addActor(dLabel = new MyLabel(game, "", new Label.LabelStyle(game.getMyAssetManager().getFont("alegreyaregular.otf"), null)));
         dLabel.setPosition(200,25);
         //addActor(new TesztActor(game, fisherMan.x, fisherMan.y));
