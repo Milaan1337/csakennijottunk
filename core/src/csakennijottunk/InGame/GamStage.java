@@ -32,6 +32,7 @@ public class GamStage extends MyStage {
     BasicVariables basicVariables;
     FishFoodActor fishFoodActor;
     FisherManGroup fisherManActor;
+    BaitActor baitActor;
 
     public void generateFlying(){
         ArrayList<Actor> actors = new ArrayList<Actor>();
@@ -60,7 +61,6 @@ public class GamStage extends MyStage {
         super(new ResponseViewport(1200), game);
         //addActor(new GameActor(game));
         addBackButtonScreenBackByStackPopListener();
-        addActor(new WhiteActor(game,0,100));
         addListener(new ClickListener(){
             @Override
             public void touchDragged(InputEvent event, float x, float y, int pointer) {
@@ -75,7 +75,10 @@ public class GamStage extends MyStage {
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
                 super.touchUp(event, x, y, pointer, button);
-                addActor(new BaitActor(game, new Ballistics2(fisherManActor.v0, MathUtils.degreesToRadians * fisherManActor.degree, fisherManActor.get_handEnd().x, fisherManActor.get_handEnd().y), 10));
+                if (baitActor != null){
+                    baitActor.remove();
+                }
+                addActor(baitActor = new BaitActor(game, new Ballistics2(fisherManActor.v0, MathUtils.degreesToRadians * fisherManActor.degree, fisherManActor.get_handEnd().x, fisherManActor.get_handEnd().y), 10));
             }
         });
         addActor(vLabel = new MyLabel(game, "", new Label.LabelStyle(game.getMyAssetManager().getFont("alegreyaregular.otf"), null)));
