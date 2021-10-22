@@ -7,7 +7,6 @@ import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
-import com.badlogic.gdx.audio.Music;
 
 import java.util.ArrayList;
 
@@ -22,7 +21,6 @@ public class GamStage extends MyStage {
 
     public Vector2 fisherMan = new Vector2(200, 190);
     public Vector2 fishingRod = new Vector2(10, 10);
-    public OneSpriteStaticActor fishingRodEndActor;
     public float degree = 45;
     public float v = 100;
     public MyLabel vLabel;
@@ -33,7 +31,7 @@ public class GamStage extends MyStage {
     ClickListener d1;
     ClickListener d2;
     BasicVariables basicVariables;
-    TesztActor horgaszman;
+    FisherManGroup fisherManActor;
 
     public void generateFlying(){
         ArrayList<Actor> actors = new ArrayList<Actor>();
@@ -59,16 +57,19 @@ public class GamStage extends MyStage {
     }
 
     public GamStage(MyGame game) {
-        super(new ResponseViewport(512), game);
+        super(new ResponseViewport(2048), game);
         //addActor(new GameActor(game));
         addBackButtonScreenBackByStackPopListener();
         addListener(new ClickListener(){
             @Override
             public void touchDragged(InputEvent event, float x, float y, int pointer) {
+                System.out.println("x= " + x  + " y= " + y);
                 degree = heightToDegree(y);
                 v = widthToSpeed(x);
+                fisherManActor.set_angle(degree);
                 // System.out.println(widthToSpeed(x) + " " + degree);
-                fishingRodEndActor.setPosition(getFishingRodEnd().x, getFishingRodEnd().y);
+                //fishermanHandActor.setPosition(getFishingRodEnd().x, getFishingRodEnd().y);
+                //fishermanHandActor.setRotation(degree);
                 vLabel.setText("" + (int)degree + "°");
                 generateFlying();
                 super.touchDragged(event, x, y, pointer);
@@ -81,9 +82,10 @@ public class GamStage extends MyStage {
             }
         });
         addActor(vLabel = new MyLabel(game, "", new Label.LabelStyle(game.getMyAssetManager().getFont("alegreyaregular.otf"), null)));
-        addActor(horgaszman = new TesztActor(game, fisherMan.x, fisherMan.y));
+        addActor(fisherManActor = new FisherManGroup(game));
+        //addActor(horgaszman = new FisherManActor(game, fisherMan.x, fisherMan.y));
         //addActor(new TesztActor(game, fishingRod.x, fishingRod.y));
-        addActor(fishingRodEndActor = new TesztActor2(game, getFishingRodEnd().x, getFishingRodEnd().y));
+        //addActor(fishermanHandActor = new FisherManHandActor(game, getFishingRodEnd().x, getFishingRodEnd().y));
         m = new MusicActor(game);
         m.setSize(56.88888888888889f, 56.88888888888889f);
         m.setPosition(853, 0);
@@ -122,14 +124,14 @@ public class GamStage extends MyStage {
                 addActor(m);
             }
         });
-        addActor(vLabel = new MyLabel(game, "ASD", new Label.LabelStyle(game.getMyAssetManager().getFont("alegreyaregular.otf"), null)));
-        addActor(new TesztActor(game, fisherMan.x, fisherMan.y));
-        //addActor(new TesztActor(game, fishingRod.x, fishingRod.y));
-        addActor(fishingRodEndActor = new TesztActor2(game, getFishingRodEnd().x, getFishingRodEnd().y));
-
         ingameBackground2 = new IngameBackground(game);
-        addActor(ingameBackground2);
-        ingameBackground2.setZIndex(-95);
+        //addActor(ingameBackground2);
+        //ingameBackground2.setZIndex(-95);
+
+        addActor(vLabel = new MyLabel(game, "ASD", new Label.LabelStyle(game.getMyAssetManager().getFont("alegreyaregular.otf"), null)));
+        //addActor(new TesztActor(game, fishingRod.x, fishingRod.y));
+        //addActor(fishermanHandActor = new FisherManHandActor(game, 0,0));
+
     }
 
     public float widthToSpeed(float x) {
