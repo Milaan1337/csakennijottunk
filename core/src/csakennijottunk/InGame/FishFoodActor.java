@@ -13,8 +13,8 @@ public class FishFoodActor extends OneSpriteStaticActor {
         super(game, "Fishfoodactor.png");
         this.ballistics2 = ballistics;
         this.waterHeight = waterHeight;
-        setWidth(25);
-        setHeight(25);
+        setWidth(100);
+        setHeight(100);
 
     }
 

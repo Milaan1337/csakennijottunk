@@ -6,7 +6,7 @@ import hu.csanyzeg.master.MyBaseClasses.Scene2D.OneSpriteStaticActor;
 public class FlyActor extends OneSpriteStaticActor {
 
     public FlyActor(MyGame game, float x, float y) {
-        super(game, "fisherman.png");
+        super(game, "Fisherman.png");
         setWidth(5);
         setHeight(5);
         setPosition(x,y);
