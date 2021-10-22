@@ -136,4 +136,24 @@ public class Ballistics2 {
                 ",\ngravitációs gyorsulás g = " + g +
                 "\n}";
     }
+
+    public float getV0() {
+        return v0;
+    }
+
+    public float getX0() {
+        return x0;
+    }
+
+    public float getY0() {
+        return y0;
+    }
+
+    public float getA0() {
+        return a0;
+    }
+
+    public float getG() {
+        return g;
+    }
 }

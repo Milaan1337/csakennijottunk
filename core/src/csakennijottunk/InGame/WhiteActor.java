@@ -11,15 +11,13 @@ public class WhiteActor extends OneSpriteStaticActor {
     public void act(float delta) {
         super.act(delta);
         if (this.getY() >= yPos)
-        this.setPosition(this.getX(),this.getY() - 5);
+        this.setPosition(this.getX(),this.getY() - 1);
     }
 
     public WhiteActor(MyGame game, float x, float y) {
         super(game, "badlogic.jpg");
         xPos = x;
         yPos = y;
-        this.setSize(100,100);
-        this.setPosition(0,1000);
-
+        this.setSize(3,3);
     }
 }
