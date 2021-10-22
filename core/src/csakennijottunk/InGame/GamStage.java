@@ -509,12 +509,13 @@ public class GamStage extends MyStage {
         addActor(fisherManActor = new FisherManGroup(game));
         fisherManActor.setPosition(330, 230);
         m = new MusicActor(game);
-        m.setSize(56.88888888888889f, 56.88888888888889f);
-        m.setPosition(2000-57, 0);
+        m.setSize(133, 133);
+        m.setPosition(2000, 0);
+        m.setZIndex(50);
         m2 = new MusicActor2(game);
-        m2.setSize(56.88888888888889f, 56.88888888888889f);
-        m2.setPosition(2075, 0);
-        m2.setZIndex(-5);
+        m2.setSize(133, 133);
+        m2.setPosition(2000, 0);
+        m2.setZIndex(50);
         basicVariables = new BasicVariables();
         if (basicVariables.getIsPlaying() == true) {
             addActor(m);
@@ -522,7 +523,6 @@ public class GamStage extends MyStage {
         else{
             addActor(m2);
         }
-        m.setZIndex(-5);
         if (basicVariables.getIsPlaying() == true) {
             music.play();
         }
