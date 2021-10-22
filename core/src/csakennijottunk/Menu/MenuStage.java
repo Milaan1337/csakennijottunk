@@ -19,7 +19,7 @@ public class MenuStage extends MyStage {
     CreditLabel creditLabel2;
     ExitLabel exitLabel;
     BasicVariables basicVariables;
-    Music music = game.getMyAssetManager().getMusic("music.wav");
+    Music music = game.getMyAssetManager().getMusic("music.mp3");
     public MenuStage(MyGame game) {
         super(new ResponseViewport(90), game);
         setCameraResetToCenterOfScreen();

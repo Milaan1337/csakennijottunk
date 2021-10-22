@@ -33,7 +33,7 @@ public class GamStage extends MyStage {
     public MyLabel myLabel;
     public boolean isOnWindow = true;
     IngameBackground ingameBackground2;
-    Music music = game.getMyAssetManager().getMusic("music.wav");
+    Music music = game.getMyAssetManager().getMusic("music.mp3");
     MusicActor m;
     MusicActor2 m2;
     ClickListener d1;

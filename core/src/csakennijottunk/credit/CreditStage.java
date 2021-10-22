@@ -27,7 +27,7 @@ public class CreditStage extends MyStage {
     CreditlistActor Developers;
     BasicVariables basicVariables;
     BackLabel backLabel;
-    Music music = game.getMyAssetManager().getMusic("music.wav");
+    Music music = game.getMyAssetManager().getMusic("music.mp3");
     public CreditStage(MyGame game) {
         super(new ResponseViewport(90), game);
         setCameraResetToCenterOfScreen();
