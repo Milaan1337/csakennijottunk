@@ -7,6 +7,7 @@ import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
+import com.badlogic.gdx.audio.Music;
 
 import java.util.ArrayList;
 
@@ -29,6 +30,7 @@ public class GamStage extends MyStage {
     ClickListener d1;
     ClickListener d2;
     BasicVariables basicVariables;
+    FishFoodActor fishFoodActor;
     FisherManGroup fisherManActor;
 
     public void generateFlying(){
@@ -58,6 +60,7 @@ public class GamStage extends MyStage {
         super(new ResponseViewport(2048), game);
         //addActor(new GameActor(game));
         addBackButtonScreenBackByStackPopListener();
+        addActor(new WhiteActor(game,0,100));
         addListener(new ClickListener(){
             @Override
             public void touchDragged(InputEvent event, float x, float y, int pointer) {
@@ -118,13 +121,10 @@ public class GamStage extends MyStage {
                 addActor(m);
             }
         });
-        ingameBackground2 = new IngameBackground(game);
-        //addActor(ingameBackground2);
-        //ingameBackground2.setZIndex(-95);
-
         addActor(vLabel = new MyLabel(game, "ASD", new Label.LabelStyle(game.getMyAssetManager().getFont("alegreyaregular.otf"), null)));
+        //addActor(new TesztActor(game, fisherMan.x, fisherMan.y));
         //addActor(new TesztActor(game, fishingRod.x, fishingRod.y));
-        //addActor(fishermanHandActor = new FisherManHandActor(game, 0,0));
+        //addActor(fishingRodEndActor = new TesztActor2(game, getFishingRodEnd().x, getFishingRodEnd().y));
 
     }
 
