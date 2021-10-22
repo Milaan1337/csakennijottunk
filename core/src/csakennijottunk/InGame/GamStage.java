@@ -143,15 +143,10 @@ public class GamStage extends MyStage {
                         addActor(fishFoodActor = new FishFoodActor(game, new Ballistics2(fisherManActor.v0, MathUtils.degreesToRadians * fisherManActor.degree, fisherManActor.get_handEnd().x, fisherManActor.get_handEnd().y),        120));
                         fisherManActor.set_hand(FisherManGroup.Handtype.none);
                         generateFlying();
-                        IntervalTimer intervalTimer2 = new IntervalTimer(5,new IntervalTimerListener(){
+                        fishFoodActor.setOnStopListener(new BallisticActor.OnStopListener() {
                             @Override
-                            public void onTick(IntervalTimer sender, float correction) {
-                                super.onTick(sender, correction);
-                            }
+                            void stop(BallisticActor sender) {
 
-                            @Override
-                            public void onStop(IntervalTimer sender) {
-                                super.onStop(sender);
                                 OneSpriteStaticActor castRod = new OneSpriteStaticActor(game,"CastRod.png");
                                 addActor(castRod);
                                 castRod.setSize(1000,1000);
@@ -186,13 +181,8 @@ public class GamStage extends MyStage {
                                     }
                                 });
                             }
-
-                            @Override
-                            public void onStart(IntervalTimer sender) {
-                                super.onStart(sender);
-                            }
                         });
-                        addTimer(intervalTimer2);
+
                     }if (fisherManActor.get_hand() == FisherManGroup.Handtype.fishingrod){
                         System.out.println("ok");
                         if (baitActor != null){
@@ -207,20 +197,9 @@ public class GamStage extends MyStage {
                         });
                         fisherManActor.set_hand(FisherManGroup.Handtype.bugFix);
                         generateFlying();
-                        IntervalTimer intervalTimer = new IntervalTimer(5,new IntervalTimerListener(){
+                        baitActor.setOnStopListener(new BallisticActor.OnStopListener() {
                             @Override
-                            public void onRepeat(IntervalTimer sender) {
-                                super.onRepeat(sender);
-                            }
-
-                            @Override
-                            public void onTick(IntervalTimer sender, float correction) {
-                                super.onTick(sender, correction);
-                            }
-
-                            @Override
-                            public void onStop(IntervalTimer sender) {
-                                super.onStop(sender);
+                            void stop(BallisticActor sender) {
                                 float baitX = baitActor.getX();
                                 float fishFoodX = fishFoodActor.getX();
                                 if(baitX > fishFoodX){
@@ -493,13 +472,7 @@ public class GamStage extends MyStage {
                                     }
                                 }
                             }
-
-                            @Override
-                            public void onStart(IntervalTimer sender) {
-                                super.onStart(sender);
-                            }
                         });
-                        addTimer(intervalTimer);
                         //addActor(new BaitActor(game, new Ballistics2(fisherManActor.v0, MathUtils.degreesToRadians * fisherManActor.degree, fisherManActor.get_handEnd().x, fisherManActor.get_handEnd().y), 150));
                     }
                 }
