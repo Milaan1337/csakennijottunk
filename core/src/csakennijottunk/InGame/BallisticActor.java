@@ -10,7 +10,7 @@ import hu.csanyzeg.master.MyBaseClasses.Scene2D.OneSpriteStaticActor;
 
 public class BallisticActor extends OneSpriteStaticActor {
 
-    public abstract static class OnStopListener{
+    public abstract static class OnStopListener {
         abstract void stop(BallisticActor sender);
     }
 
@@ -32,7 +32,7 @@ public class BallisticActor extends OneSpriteStaticActor {
         startpoint = new Vector2(ballistics.getX0(), ballistics.getY0());
         endpoint = new Vector2(ballistics2.getPosition(ballistics2.getElapsedTimeFromY(waterHeight)[1]).x, ballistics2.getPosition(ballistics2.getElapsedTimeFromY(waterHeight)[1]).y);
         falltime = ballistics2.getElapsedTimeFromY(waterHeight)[1];
-        setSize(128,128);
+        setSize(128, 128);
     }
 
     @Override
@@ -45,16 +45,17 @@ public class BallisticActor extends OneSpriteStaticActor {
             } else {
                 setPosition(endpoint.x - getWidth() / 2, endpoint.y - getHeight() / 2);
                 flying = false;
-                if (onStopListener != null){
+                if (onStopListener != null) {
                     onStopListener.stop(this);
                 }
             }
         }
+        System.out.println(getDistanceInMeter());
     }
 
     @Override
     public boolean remove() {
-        for(WhiteActor b : whiteActorVector){
+        for (WhiteActor b : whiteActorVector) {
             b.remove();
         }
         whiteActorVector.clear();
@@ -67,5 +68,13 @@ public class BallisticActor extends OneSpriteStaticActor {
 
     public void setOnStopListener(OnStopListener onStopListener) {
         this.onStopListener = onStopListener;
+    }
+
+    public float getDistanceInMeter() {
+        return ballistics2.getPosition(falltime / speed < elapsedTime ? falltime / speed : elapsedTime).x - ballistics2.getX0();
+    }
+
+    public float getLengthInMeter() {
+        return ballistics2.getPosition(falltime / speed).x - ballistics2.getX0();
     }
 }
