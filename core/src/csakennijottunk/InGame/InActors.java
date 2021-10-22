@@ -162,8 +162,6 @@ class ShopBg extends OneSpriteStaticActor {
 class HandRod extends OneSpriteStaticActor {
     public HandRod(MyGame game) {
         super(game, "HandRod.png");
-        int size = 90;
-        this.setSize(size,80);
     }
 }
 
