@@ -30,6 +30,7 @@ public class GamStage extends MyStage {
     public Vector2 fishingRod = new Vector2(10, 10);
     public MyLabel vLabel;
     public MyLabel dLabel;
+    public MyLabel myLabel;
     public boolean isOnWindow = true;
     IngameBackground ingameBackground2;
     Music music = game.getMyAssetManager().getMusic("music.wav");
@@ -548,7 +549,8 @@ public class GamStage extends MyStage {
         });
         addActor(vLabel = new MyLabel(game, "", new Label.LabelStyle(game.getMyAssetManager().getFont("alegreyaregular.otf"), null)));
         addActor(dLabel = new MyLabel(game, "", new Label.LabelStyle(game.getMyAssetManager().getFont("alegreyaregular.otf"), null)));
-        dLabel.setPosition(200,25);
+        dLabel.setPosition(200,75);
+        vLabel.setPosition(0,75);
         vLabel.setFontScale(3);
         dLabel.setFontScale(3);
         //addActor(new TesztActor(game, fisherMan.x, fisherMan.y));
