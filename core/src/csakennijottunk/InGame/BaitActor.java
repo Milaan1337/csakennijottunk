@@ -7,6 +7,8 @@ import java.util.Vector;
 import hu.csanyzeg.master.Math.Ballistics2;
 import hu.csanyzeg.master.MyBaseClasses.Game.MyGame;
 import hu.csanyzeg.master.MyBaseClasses.Scene2D.OneSpriteStaticActor;
+import hu.csanyzeg.master.MyBaseClasses.SimpleWorld.SimpleOverlapsUtil;
+import hu.csanyzeg.master.MyBaseClasses.SimpleWorld.SimpleWorld;
 
 public class BaitActor extends OneSpriteStaticActor {
     protected Ballistics2 ballistics2;
