@@ -57,7 +57,7 @@ public class GamStage extends MyStage {
     }
 
     public GamStage(MyGame game) {
-        super(new ResponseViewport(2048), game);
+        super(new ResponseViewport(1200), game);
         //addActor(new GameActor(game));
         addBackButtonScreenBackByStackPopListener();
         addActor(new WhiteActor(game,0,100));
@@ -79,10 +79,10 @@ public class GamStage extends MyStage {
             }
         });
         addActor(vLabel = new MyLabel(game, "", new Label.LabelStyle(game.getMyAssetManager().getFont("alegreyaregular.otf"), null)));
+        addActor(ingameBackground2 = new IngameBackground(game));
+        ingameBackground2.setHeightWhithAspectRatio(getViewport().getWorldHeight());
         addActor(fisherManActor = new FisherManGroup(game));
-        //addActor(horgaszman = new FisherManActor(game, fisherMan.x, fisherMan.y));
-        //addActor(new TesztActor(game, fishingRod.x, fishingRod.y));
-        //addActor(fishermanHandActor = new FisherManHandActor(game, getFishingRodEnd().x, getFishingRodEnd().y));
+        fisherManActor.setPosition(330, 230);
         m = new MusicActor(game);
         m.setSize(56.88888888888889f, 56.88888888888889f);
         m.setPosition(853, 0);
