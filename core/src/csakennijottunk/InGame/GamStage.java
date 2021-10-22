@@ -42,6 +42,8 @@ public class GamStage extends MyStage {
     OneSpriteStaticActor test;
     OneSpriteStaticActor sensorActor;
     MyContactListener l1;
+    BaitActor baitActor;
+
     public void generateFlying(){
         ArrayList<Actor> actors = new ArrayList<Actor>();
         for (Actor a:getActors()) {
@@ -121,6 +123,10 @@ public class GamStage extends MyStage {
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
                 super.touchUp(event, x, y, pointer, button);
+                if (baitActor != null){
+                    baitActor.remove();
+                }
+                addActor(baitActor = new BaitActor(game, new Ballistics2(fisherManActor.v0, MathUtils.degreesToRadians * fisherManActor.degree, fisherManActor.get_handEnd().x, fisherManActor.get_handEnd().y), 10));
                 if (isOnWindow == false) {
                     if (fisherManActor.get_hand() == FisherManGroup.Handtype.hand) {
                         addActor(fishFoodActor = new FishFoodActor(game, new Ballistics2(fisherManActor.v0, MathUtils.degreesToRadians * fisherManActor.degree, fisherManActor.get_handEnd().x, fisherManActor.get_handEnd().y), 80));
