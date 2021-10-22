@@ -1,17 +1,15 @@
 package csakennijottunk.InGame;
 
 import com.badlogic.gdx.math.Vector2;
-import com.badlogic.gdx.scenes.scene2d.Group;
-import com.badlogic.gdx.scenes.scene2d.Stage;
 
 import hu.csanyzeg.master.MyBaseClasses.Game.MyGame;
 import hu.csanyzeg.master.MyBaseClasses.Scene2D.MyGroup;
-import hu.csanyzeg.master.MyBaseClasses.Scene2D.OneSpriteStaticActor;
 
 public class FisherManGroup extends MyGroup {
     public enum Handtype{
         hand,
-        fishingrod
+        fishingrod,
+        none
     }
 
     public Handtype handtype = Handtype.hand;
@@ -31,7 +29,7 @@ public class FisherManGroup extends MyGroup {
         addActor(fisherManRodActor = new HandRod(game));
         fisherManHandActor.setOrigin(topsolders.x, topsolders.y);
         fisherManRodActor.setOrigin(topsolders.x, topsolders.y);
-        set_hand(Handtype.fishingrod);
+        set_hand(Handtype.hand);
     }
 
     void set_angle(float degree){
@@ -55,7 +53,14 @@ public class FisherManGroup extends MyGroup {
                 fisherManHandActor.setVisible(false);
                 fisherManRodActor.setVisible(true);
                 break;
+            case none:
+                fisherManHandActor.setVisible(false);
+                fisherManRodActor.setVisible(false);
         }
+    }
+
+    Handtype get_hand(){
+        return handtype;
     }
 
     Vector2 get_handEnd(){
