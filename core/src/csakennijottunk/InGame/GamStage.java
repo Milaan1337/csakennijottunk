@@ -124,8 +124,8 @@ public class GamStage extends MyStage {
         });
         addActor(vLabel = new MyLabel(game, "ASD", new Label.LabelStyle(game.getMyAssetManager().getFont("alegreyaregular.otf"), null)));
         addActor(new TesztActor(game, fisherMan.x, fisherMan.y));
-        addActor(new TesztActor(game, fishingRod.x, fishingRod.y));
-        addActor(fishingRodEndActor = new TesztActor(game, getFishingRodEnd().x, getFishingRodEnd().y));
+        //addActor(new TesztActor(game, fishingRod.x, fishingRod.y));
+        addActor(fishingRodEndActor = new TesztActor2(game, getFishingRodEnd().x, getFishingRodEnd().y));
 
         ingameBackground2 = new IngameBackground(game);
         addActor(ingameBackground2);
