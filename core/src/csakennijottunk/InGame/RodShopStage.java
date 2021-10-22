@@ -1,5 +1,6 @@
 package csakennijottunk.InGame;
 
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.viewport.Viewport;
@@ -7,6 +8,8 @@ import com.badlogic.gdx.utils.viewport.Viewport;
 import hu.csanyzeg.master.MyBaseClasses.Game.MyGame;
 import hu.csanyzeg.master.MyBaseClasses.Scene2D.MyStage;
 import hu.csanyzeg.master.MyBaseClasses.Scene2D.ResponseViewport;
+import hu.csanyzeg.master.MyBaseClasses.Timers.IntervalTimer;
+import hu.csanyzeg.master.MyBaseClasses.Timers.TimerListener;
 import hu.csanyzeg.master.MyBaseClasses.UI.MyLabel;
 
 public class RodShopStage extends MyStage {
@@ -27,6 +30,8 @@ public class RodShopStage extends MyStage {
     BasicVariables basicVariables;
     ClickListener clickListener;
     ClickListener c2;
+    IntervalTimer t1;
+    TimerListener timerListener;
     public RodShopStage(MyGame game) {
         super(new ResponseViewport(90), game);
         addBackButtonScreenBackByStackPopListener();
@@ -48,12 +53,16 @@ public class RodShopStage extends MyStage {
                 public void clicked(InputEvent event, float x, float y) {
                     super.clicked(event, x, y);
                     if (money >= 10) {
+                        System.out.println(money + "pénz");
                         basicVariables.buyRodLvl2();
                         basicVariables.setRod(2);
                         System.out.println(basicVariables.getRodLvl2());
                         vasarlasLabel.remove();
-                        basicVariables.setMoney(money - 5);
+                        basicVariables.setMoney(money - 10);
                         updateMoneyLabel();
+                    }
+                    else{
+                        vasarlasLabel.setColor(Color.RED);
                     }
                 }
             });
@@ -71,12 +80,16 @@ public class RodShopStage extends MyStage {
                     super.clicked(event, x, y);
                     updateMoneyLabel();
                     if (money >= 10) {
+                        System.out.println(money + "pénz");
                         basicVariables.buyRodLvl3();
                         basicVariables.setRod(3);
                         System.out.println(basicVariables.getRodLvl3());
                         vasarlasLabel2.remove();
                         basicVariables.setMoney(money - 10);
                         updateMoneyLabel();
+                    }
+                    else{
+                        vasarlasLabel2.setColor(Color.RED);
                     }
                 }
             });
