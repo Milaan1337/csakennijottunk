@@ -52,7 +52,7 @@ class MusicActor extends OneSpriteStaticActor {
     public MusicActor(MyGame game) {
         super(game, "SoundON.png");
         this.setSize(10, 10);
-        this.setPosition(115, 0);
+        this.setPosition(100, 0);
     }
 }
 
@@ -62,6 +62,6 @@ class MusicActor2 extends OneSpriteStaticActor {
     public MusicActor2(MyGame game) {
         super(game, "SoundOFF.png");
         this.setSize(10, 10);
-        this.setPosition(115, 0);
+        this.setPosition(100, 0);
     }
 }
