@@ -12,6 +12,7 @@ import com.badlogic.gdx.audio.Music;
 
 import java.util.ArrayList;
 
+import csakennijottunk.Menu.MenuScreen;
 import hu.csanyzeg.master.Math.Ballistics2;
 import hu.csanyzeg.master.MyBaseClasses.Box2dWorld.MyContactListener;
 import hu.csanyzeg.master.MyBaseClasses.Game.MyGame;
@@ -43,6 +44,7 @@ public class GamStage extends MyStage {
     OneSpriteStaticActor sensorActor;
     MyContactListener l1;
     BaitActor baitActor;
+    public int worms = 3;
 
     public void generateFlying(){
         ArrayList<Actor> actors = new ArrayList<Actor>();
@@ -67,6 +69,16 @@ public class GamStage extends MyStage {
         return fishingRodEnd;
     }
 
+    @Override
+    public void act(float delta) {
+        super.act(delta);
+        //if (sensorActor.getStage() != null & baitActor.getStage() != null) {
+            //if (SimpleOverlapsUtil.overlaps(sensorActor, baitActor)) {
+              //  System.out.println("HE_LO");
+            //}
+       // }
+    }
+
     public GamStage(MyGame game) {
         super(new ResponseViewport(1200), game);
         //addActor(new GameActor(game));
@@ -74,7 +86,7 @@ public class GamStage extends MyStage {
        sensorActor = new OneSpriteStaticActor(game,"badlogic.jpg");
        sensorActor.setSize(1500,250);
        sensorActor.setPosition(750,0);
-       sensorActor.setVisible(false);
+       sensorActor.setVisible(true);
        addActor(sensorActor);
        addActor(test = new OneSpriteStaticActor(game,"FeedFish.png"));
        test.setZIndex(999);
@@ -125,14 +137,351 @@ public class GamStage extends MyStage {
                 if (isOnWindow == false) {
                     if (fisherManActor.get_hand() == FisherManGroup.Handtype.hand) {
                         addActor(fishFoodActor = new FishFoodActor(game, new Ballistics2(fisherManActor.v0, MathUtils.degreesToRadians * fisherManActor.degree, fisherManActor.get_handEnd().x, fisherManActor.get_handEnd().y), 80));
+                        fisherManActor.set_hand(FisherManGroup.Handtype.none);
+                        IntervalTimer intervalTimer2 = new IntervalTimer(5,new IntervalTimerListener(){
+                            @Override
+                            public void onTick(IntervalTimer sender, float correction) {
+                                super.onTick(sender, correction);
+                            }
 
-                    }else{
+                            @Override
+                            public void onStop(IntervalTimer sender) {
+                                super.onStop(sender);
+                                OneSpriteStaticActor castRod = new OneSpriteStaticActor(game,"CastRod.png");
+                                addActor(castRod);
+                                castRod.setSize(1000,1000);
+                                castRod.setPosition(500,100);
+                                castRod.setZIndex(999);
+                                isOnWindow = true;
+                                castRod.addListener(new ClickListener(){
+                                    @Override
+                                    public void clicked(InputEvent event, float x, float y) {
+                                        super.clicked(event, x, y);
+                                        castRod.remove();
+                                        fisherManActor.set_hand(FisherManGroup.Handtype.fishingrod);
+                                        IntervalTimer intervalTimer = new IntervalTimer(1,new IntervalTimerListener(){
+                                            @Override
+                                            public void onTick(IntervalTimer sender, float correction) {
+                                                super.onTick(sender, correction);
+                                            }
+
+                                            @Override
+                                            public void onStop(IntervalTimer sender) {
+                                                super.onStop(sender);
+                                                isOnWindow = false;
+                                            }
+
+                                            @Override
+                                            public void onStart(IntervalTimer sender) {
+                                                super.onStart(sender);
+                                            }
+                                        });
+                                        addTimer(intervalTimer);
+                                    }
+                                });
+                            }
+
+                            @Override
+                            public void onStart(IntervalTimer sender) {
+                                super.onStart(sender);
+                            }
+                        });
+                        addTimer(intervalTimer2);
+                    }if (fisherManActor.get_hand() == FisherManGroup.Handtype.fishingrod){
                         System.out.println("ok");
                         if (baitActor != null){
                             baitActor.remove();
                         }
-                        addActor(baitActor = new BaitActor(game, new Ballistics2(fisherManActor.v0, MathUtils.degreesToRadians * fisherManActor.degree, fisherManActor.get_handEnd().x, fisherManActor.get_handEnd().y), 10));
-                        addActor(new BaitActor(game, new Ballistics2(fisherManActor.v0, MathUtils.degreesToRadians * fisherManActor.degree, fisherManActor.get_handEnd().x, fisherManActor.get_handEnd().y), 150));
+                        addActor(baitActor = new BaitActor(game, new Ballistics2(fisherManActor.v0, MathUtils.degreesToRadians * fisherManActor.degree, fisherManActor.get_handEnd().x, fisherManActor.get_handEnd().y), 100));
+                        fisherManActor.set_hand(FisherManGroup.Handtype.bugFix);
+                        IntervalTimer intervalTimer = new IntervalTimer(5,new IntervalTimerListener(){
+                            @Override
+                            public void onRepeat(IntervalTimer sender) {
+                                super.onRepeat(sender);
+                            }
+
+                            @Override
+                            public void onTick(IntervalTimer sender, float correction) {
+                                super.onTick(sender, correction);
+                            }
+
+                            @Override
+                            public void onStop(IntervalTimer sender) {
+                                super.onStop(sender);
+                                float baitX = baitActor.getX();
+                                float fishFoodX = fishFoodActor.getX();
+                                if(baitX > fishFoodX){
+                                    if (baitX - fishFoodX > 250){
+                                        worms = worms -1;
+                                        if (worms == 2){
+                                            OneSpriteStaticActor twoWormsLeft = new OneSpriteStaticActor(game,"2Wormleft.png");
+                                            addActor(twoWormsLeft);
+                                            twoWormsLeft.setPosition(2000/2 - 500,100);
+                                            twoWormsLeft.setSize(1000,1000);
+                                            twoWormsLeft.setZIndex(999);
+                                            isOnWindow = true;
+                                            twoWormsLeft.addListener(new ClickListener(){
+                                                @Override
+                                                public void clicked(InputEvent event, float x, float y) {
+                                                    super.clicked(event, x, y);
+                                                    twoWormsLeft.remove();
+                                                    IntervalTimer intervalTimer1 = new IntervalTimer(1,new IntervalTimerListener(){
+                                                        @Override
+                                                        public void onTick(IntervalTimer sender, float correction) {
+                                                            super.onTick(sender, correction);
+                                                        }
+
+                                                        @Override
+                                                        public void onStop(IntervalTimer sender) {
+                                                            super.onStop(sender);
+                                                            isOnWindow = false;
+                                                            fisherManActor.set_hand(FisherManGroup.Handtype.fishingrod);
+                                                        }
+
+                                                        @Override
+                                                        public void onStart(IntervalTimer sender) {
+                                                            super.onStart(sender);
+                                                        }
+                                                    });
+                                                    addTimer(intervalTimer1);
+                                                }
+                                            });
+                                        }if (worms == 1){
+                                            OneSpriteStaticActor oneWormsLeft = new OneSpriteStaticActor(game,"1Wormleft.png");
+                                            addActor(oneWormsLeft);
+                                            oneWormsLeft.setPosition(2000/2 - 500,100);
+                                            oneWormsLeft.setSize(1000,1000);
+                                            oneWormsLeft.setZIndex(999);
+                                            isOnWindow = true;
+                                            oneWormsLeft.addListener(new ClickListener(){
+                                                @Override
+                                                public void clicked(InputEvent event, float x, float y) {
+                                                    super.clicked(event, x, y);
+                                                    oneWormsLeft.remove();
+                                                    IntervalTimer intervalTimer1 = new IntervalTimer(1,new IntervalTimerListener(){
+                                                        @Override
+                                                        public void onTick(IntervalTimer sender, float correction) {
+                                                            super.onTick(sender, correction);
+                                                        }
+
+                                                        @Override
+                                                        public void onStop(IntervalTimer sender) {
+                                                            super.onStop(sender);
+                                                            isOnWindow = false;
+                                                            fisherManActor.set_hand(FisherManGroup.Handtype.fishingrod);
+                                                        }
+
+                                                        @Override
+                                                        public void onStart(IntervalTimer sender) {
+                                                            super.onStart(sender);
+                                                        }
+                                                    });
+                                                    addTimer(intervalTimer1);
+                                                }
+                                            });
+                                        }if (worms == 0){
+                                            OneSpriteStaticActor noWormsLeft = new OneSpriteStaticActor(game,"NoWormleft.png");
+                                            addActor(noWormsLeft);
+                                            noWormsLeft.setPosition(2000/2 - 500,100);
+                                            noWormsLeft.setSize(1000,1000);
+                                            noWormsLeft.setZIndex(999);
+                                            isOnWindow = true;
+                                            OneSpriteStaticActor restartButton = new OneSpriteStaticActor(game,"Restartbutton.png");
+                                            addActor(restartButton);
+                                            restartButton.setSize(200,200);
+                                            restartButton.setPosition(1000 - 100 - 300,50);
+                                            restartButton.addListener(new ClickListener(){
+                                                @Override
+                                                public void clicked(InputEvent event, float x, float y) {
+                                                    super.clicked(event, x, y);
+                                                    game.setScreen(new InGamePlayScreen(game));
+                                                }
+                                            });
+                                            OneSpriteStaticActor backButton = new OneSpriteStaticActor(game,"BackButton.png");
+                                            addActor(backButton);
+                                            backButton.setSize(200,200);
+                                            backButton.setPosition(1000 - 100 + 300,50);
+                                            backButton.addListener(new ClickListener(){
+                                                @Override
+                                                public void clicked(InputEvent event, float x, float y) {
+                                                    super.clicked(event, x, y);
+                                                    game.setScreen(new MenuScreen(game));
+                                                }
+                                            });
+                                        }
+                                        System.out.println("szar");
+                                    }else{
+                                        OneSpriteStaticActor niceCatch = new OneSpriteStaticActor(game,"Catchedfish.png");
+                                        addActor(niceCatch);
+                                        niceCatch.setSize(1000,1000);
+                                        niceCatch.setPosition(2000/2 - 500,100);
+                                        niceCatch.setZIndex(999);
+                                        isOnWindow = true;
+                                        System.out.println("jó");
+                                        OneSpriteStaticActor restartButton = new OneSpriteStaticActor(game,"Restartbutton.png");
+                                        addActor(restartButton);
+                                        restartButton.setSize(200,200);
+                                        restartButton.setPosition(1000 - 100 - 300,50);
+                                        restartButton.addListener(new ClickListener(){
+                                            @Override
+                                            public void clicked(InputEvent event, float x, float y) {
+                                                super.clicked(event, x, y);
+                                                game.setScreen(new InGamePlayScreen(game));
+                                            }
+                                        });
+                                        OneSpriteStaticActor backButton = new OneSpriteStaticActor(game,"BackButton.png");
+                                        addActor(backButton);
+                                        backButton.setSize(200,200);
+                                        backButton.setPosition(1000 - 100 + 300,50);
+                                        backButton.addListener(new ClickListener(){
+                                            @Override
+                                            public void clicked(InputEvent event, float x, float y) {
+                                                super.clicked(event, x, y);
+                                                game.setScreen(new MenuScreen(game));
+                                            }
+                                        });
+                                    }
+                                }if(fishFoodX > baitX){
+                                    if (fishFoodX - baitX > 250){
+                                        worms = worms - 1;
+                                        if (worms == 2){
+                                            OneSpriteStaticActor twoWormsLeft = new OneSpriteStaticActor(game,"2Wormleft.png");
+                                            addActor(twoWormsLeft);
+                                            twoWormsLeft.setPosition(2000/2 - 500,100);
+                                            twoWormsLeft.setSize(1000,1000);
+                                            twoWormsLeft.setZIndex(999);
+                                            isOnWindow = true;
+                                            twoWormsLeft.addListener(new ClickListener(){
+                                                @Override
+                                                public void clicked(InputEvent event, float x, float y) {
+                                                    super.clicked(event, x, y);
+                                                    twoWormsLeft.remove();
+                                                    IntervalTimer intervalTimer1 = new IntervalTimer(1,new IntervalTimerListener(){
+                                                        @Override
+                                                        public void onTick(IntervalTimer sender, float correction) {
+                                                            super.onTick(sender, correction);
+                                                        }
+
+                                                        @Override
+                                                        public void onStop(IntervalTimer sender) {
+                                                            super.onStop(sender);
+                                                            isOnWindow = false;
+                                                            fisherManActor.set_hand(FisherManGroup.Handtype.fishingrod);
+                                                        }
+
+                                                        @Override
+                                                        public void onStart(IntervalTimer sender) {
+                                                            super.onStart(sender);
+                                                        }
+                                                    });
+                                                    addTimer(intervalTimer1);
+                                                }
+                                            });
+                                        }if (worms == 1){
+                                            OneSpriteStaticActor oneWormsLeft = new OneSpriteStaticActor(game,"1Wormleft.png");
+                                            addActor(oneWormsLeft);
+                                            oneWormsLeft.setPosition(2000/2 - 500,100);
+                                            oneWormsLeft.setSize(1000,1000);
+                                            oneWormsLeft.setZIndex(999);
+                                            isOnWindow = true;
+                                            oneWormsLeft.addListener(new ClickListener(){
+                                                @Override
+                                                public void clicked(InputEvent event, float x, float y) {
+                                                    super.clicked(event, x, y);
+                                                    oneWormsLeft.remove();
+                                                    IntervalTimer intervalTimer1 = new IntervalTimer(1,new IntervalTimerListener(){
+                                                        @Override
+                                                        public void onTick(IntervalTimer sender, float correction) {
+                                                            super.onTick(sender, correction);
+                                                        }
+
+                                                        @Override
+                                                        public void onStop(IntervalTimer sender) {
+                                                            super.onStop(sender);
+                                                            isOnWindow = false;
+                                                            fisherManActor.set_hand(FisherManGroup.Handtype.fishingrod);
+                                                        }
+
+                                                        @Override
+                                                        public void onStart(IntervalTimer sender) {
+                                                            super.onStart(sender);
+                                                        }
+                                                    });
+                                                    addTimer(intervalTimer1);
+                                                }
+                                            });
+                                        }if (worms == 0){
+                                            OneSpriteStaticActor noWormsLeft = new OneSpriteStaticActor(game,"NoWormleft.png");
+                                            addActor(noWormsLeft);
+                                            noWormsLeft.setPosition(2000/2 - 500,100);
+                                            noWormsLeft.setSize(1000,1000);
+                                            noWormsLeft.setZIndex(999);
+                                            isOnWindow = true;
+                                            OneSpriteStaticActor restartButton = new OneSpriteStaticActor(game,"Restartbutton.png");
+                                            addActor(restartButton);
+                                            restartButton.setSize(200,200);
+                                            restartButton.setPosition(1000 - 100 - 300,50);
+                                            restartButton.addListener(new ClickListener(){
+                                                @Override
+                                                public void clicked(InputEvent event, float x, float y) {
+                                                    super.clicked(event, x, y);
+                                                    game.setScreen(new InGamePlayScreen(game));
+                                                }
+                                            });
+                                            OneSpriteStaticActor backButton = new OneSpriteStaticActor(game,"BackButton.png");
+                                            addActor(backButton);
+                                            backButton.setSize(200,200);
+                                            backButton.setPosition(1000 - 100 + 300,50);
+                                            backButton.addListener(new ClickListener(){
+                                                @Override
+                                                public void clicked(InputEvent event, float x, float y) {
+                                                    super.clicked(event, x, y);
+                                                    game.setScreen(new MenuScreen(game));
+                                                }
+                                            });
+                                        }
+                                        System.out.println("szar");
+                                    }else{
+                                        OneSpriteStaticActor niceCatch = new OneSpriteStaticActor(game,"Catchedfish.png");
+                                        addActor(niceCatch);
+                                        niceCatch.setSize(1000,1000);
+                                        niceCatch.setPosition(2000/2 - 500,100);
+                                        niceCatch.setZIndex(999);
+                                        isOnWindow = true;
+                                        System.out.println("jó");
+                                        OneSpriteStaticActor restartButton = new OneSpriteStaticActor(game,"Restartbutton.png");
+                                        addActor(restartButton);
+                                        restartButton.setSize(200,200);
+                                        restartButton.setPosition(1000 - 100 - 300,50);
+                                        restartButton.addListener(new ClickListener(){
+                                            @Override
+                                            public void clicked(InputEvent event, float x, float y) {
+                                                super.clicked(event, x, y);
+                                                game.setScreen(new InGamePlayScreen(game));
+                                            }
+                                        });
+                                        OneSpriteStaticActor backButton = new OneSpriteStaticActor(game,"BackButton.png");
+                                        addActor(backButton);
+                                        backButton.setSize(200,200);
+                                        backButton.setPosition(1000 - 100 + 300,50);
+                                        backButton.addListener(new ClickListener(){
+                                            @Override
+                                            public void clicked(InputEvent event, float x, float y) {
+                                                super.clicked(event, x, y);
+                                                game.setScreen(new MenuScreen(game));
+                                            }
+                                        });
+                                    }
+                                }
+                            }
+
+                            @Override
+                            public void onStart(IntervalTimer sender) {
+                                super.onStart(sender);
+                            }
+                        });
+                        addTimer(intervalTimer);
+                        //addActor(new BaitActor(game, new Ballistics2(fisherManActor.v0, MathUtils.degreesToRadians * fisherManActor.degree, fisherManActor.get_handEnd().x, fisherManActor.get_handEnd().y), 150));
                     }
                 }
 
@@ -145,10 +494,10 @@ public class GamStage extends MyStage {
         fisherManActor.setPosition(330, 230);
         m = new MusicActor(game);
         m.setSize(56.88888888888889f, 56.88888888888889f);
-        m.setPosition(853, 0);
+        m.setPosition(2000-57, 0);
         m2 = new MusicActor2(game);
         m2.setSize(56.88888888888889f, 56.88888888888889f);
-        m2.setPosition(853, 0);
+        m2.setPosition(2075, 0);
         m2.setZIndex(-5);
         basicVariables = new BasicVariables();
         if (basicVariables.getIsPlaying() == true) {
