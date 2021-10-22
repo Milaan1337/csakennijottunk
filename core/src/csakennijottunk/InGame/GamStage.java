@@ -29,6 +29,7 @@ public class GamStage extends MyStage {
     public Vector2 fisherMan = new Vector2(200, 190);
     public Vector2 fishingRod = new Vector2(10, 10);
     public MyLabel vLabel;
+    public MyLabel dLabel;
     public boolean isOnWindow = true;
     IngameBackground ingameBackground2;
     Music music = game.getMyAssetManager().getMusic("music.wav");
@@ -127,6 +128,7 @@ public class GamStage extends MyStage {
                     fisherManActor.set_angle(heightToDegree(y));
                     fisherManActor.set_speed(widthToSpeed(x));
                     vLabel.setText("" + (int) fisherManActor.degree + "°");
+                    dLabel.setText("" + (int) fisherManActor.v0 + "m/s");
                     generateFlying();
                     super.touchDragged(event, x, y, pointer);
                 }
@@ -137,7 +139,7 @@ public class GamStage extends MyStage {
                 super.touchUp(event, x, y, pointer, button);
                 if (isOnWindow == false) {
                     if (fisherManActor.get_hand() == FisherManGroup.Handtype.hand) {
-                        addActor(fishFoodActor = new FishFoodActor(game, new Ballistics2(fisherManActor.v0, MathUtils.degreesToRadians * fisherManActor.degree, fisherManActor.get_handEnd().x, fisherManActor.get_handEnd().y), 80));
+                        addActor(fishFoodActor = new FishFoodActor(game, new Ballistics2(fisherManActor.v0, MathUtils.degreesToRadians * fisherManActor.degree, fisherManActor.get_handEnd().x, fisherManActor.get_handEnd().y),        120));
                         fisherManActor.set_hand(FisherManGroup.Handtype.none);
                         IntervalTimer intervalTimer2 = new IntervalTimer(5,new IntervalTimerListener(){
                             @Override
@@ -193,7 +195,7 @@ public class GamStage extends MyStage {
                         if (baitActor != null){
                             baitActor.remove();
                         }
-                        addActor(baitActor = new BaitActor(game, new Ballistics2(fisherManActor.v0, MathUtils.degreesToRadians * fisherManActor.degree, fisherManActor.get_handEnd().x, fisherManActor.get_handEnd().y), 100));
+                        addActor(baitActor = new BaitActor(game, new Ballistics2(fisherManActor.v0, MathUtils.degreesToRadians * fisherManActor.degree, fisherManActor.get_handEnd().x, fisherManActor.get_handEnd().y), 120));
                         fisherManActor.set_hand(FisherManGroup.Handtype.bugFix);
                         IntervalTimer intervalTimer = new IntervalTimer(5,new IntervalTimerListener(){
                             @Override
@@ -532,6 +534,8 @@ public class GamStage extends MyStage {
             }
         });
         addActor(vLabel = new MyLabel(game, "ASD", new Label.LabelStyle(game.getMyAssetManager().getFont("alegreyaregular.otf"), null)));
+        addActor(dLabel = new MyLabel(game, "", new Label.LabelStyle(game.getMyAssetManager().getFont("alegreyaregular.otf"), null)));
+        dLabel.setPosition(200,25);
         //addActor(new TesztActor(game, fisherMan.x, fisherMan.y));
         //addActor(new TesztActor(game, fishingRod.x, fishingRod.y));
         //addActor(fishingRodEndActor = new TesztActor2(game, getFishingRodEnd().x, getFishingRodEnd().y));
